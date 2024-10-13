@@ -1,0 +1,1 @@
+使用 [viteress](https://vitepress.dev/zh/) 写个人知识文档。它基于 vite 和 vue，对技术文档比较友好，开箱即用。
