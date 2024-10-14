@@ -2,6 +2,7 @@
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import { initHmPlugin } from './hm';
 import './style.css'
 
 export default {
@@ -13,5 +14,7 @@ export default {
   },
   enhanceApp({ app, router, siteData }) {
     // ...
+    // 百度统计
+    initHmPlugin();
   }
 } satisfies Theme
