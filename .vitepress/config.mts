@@ -35,6 +35,11 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/chenlb/knowledge' },
-    ]
+    ],
+
+    footer: {
+      message: '基于 MIT 许可发布.',
+      copyright: 'Copyright © 2024 <a href="https://github.com/chenlb" target="_blank">chenlb</a>'
+    }
   }
 })
