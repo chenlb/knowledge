@@ -3,6 +3,7 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { initHmPlugin } from './hm';
+import { initAdsensePlugin } from './adsense';
 import './style.css'
 
 export default {
@@ -16,5 +17,7 @@ export default {
     // ...
     // 百度统计
     initHmPlugin();
+    // Google Adsense
+    initAdsensePlugin();
   }
 } satisfies Theme
