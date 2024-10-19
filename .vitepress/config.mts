@@ -28,6 +28,7 @@ export default defineConfig({
     lightModeSwitchTitle: '切换到浅色模式',
     outline: {
       label: '页面导航',
+      level: [2, 4]
     },
     returnToTopLabel: '回到顶部',
     // https://vitepress.dev/reference/default-theme-config
