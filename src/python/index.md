@@ -69,3 +69,29 @@ Type "help", "copyright", "credits" or "license" for more information.
 hello python
 >>> quit()
 ```
+
+## Python 开发环境
+
+### PyCharm CE 社区版
+
+PyCharm CE 版本是免费的，基本 python 开发够用了。使用体验好。
+
+[下载 PyCharm Community Edition](https://www.jetbrains.com/pycharm/download)
+
+官方资料比较多的[学习资料](https://www.jetbrains.com/pycharm/learn/)
+
+安装 PyCharm CE 后，创建项目，可以开始开发代码。
+
+### 创建项目
+
+如：first-python
+
+![创建 Python 项目](/img/ide/pycharm-first-create-project.jpg)
+
+### 创建 python 文件并运行
+
+如：hello.py
+
+![创建 hello.py](/img/ide/pycharm-create-python-file.jpg)
+
+![编写 hello.py](/img/ide/pycharm-run-python-file.jpg)
