@@ -2,3 +2,4 @@ node_modules/
 .vitepress/.vite/
 dist/
 .idea
+.venv
