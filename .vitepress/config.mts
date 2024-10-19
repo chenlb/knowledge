@@ -8,6 +8,9 @@ export default defineConfig({
   srcDir: './src',
   outDir: './dist',
   cacheDir: './.vitepress/.vite',
+  sitemap: {
+    hostname: 'http://chenlb.com'
+  },
   themeConfig: {
     darkModeSwitchLabel: '主题',
     darkModeSwitchTitle: '切换到深色模式',
