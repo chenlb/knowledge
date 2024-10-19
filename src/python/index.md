@@ -1,3 +1,71 @@
-学习 python
+# Python 快速开始
 
-这是 python 的首页
+## 安装
+
+### 下载安装
+
+Python 官网[下载](https://www.python.org/downloads/)
+
+### 从 macbook 的 brew 安装
+
+brew 环境请看 [brew 的安装](/pc/macbook-env#brew)
+
+::: code-group
+```bash [python]
+# 当前最新版本是 13
+brew install python
+```
+
+```bash [python@12]
+# 指定 python 12 版本
+brew install python@12
+```
+
+```bash [python@11]
+# 指定 python 11 版本
+brew install python@11
+```
+:::
+
+## 验证安装
+
+查看 Python 版本
+```bash
+python3 -V
+```
+
+结果如下：
+```text
+Python 3.13.0
+```
+
+python 相关命令指向什么版本：
+```bash
+ls -lh /usr/local/bin/python*
+```
+
+我当前的环境：
+```text:line-numbers{2}
+lrwxr-xr-x  1 chenlb  wheel    10B 12 19  2023 /usr/local/bin/python -> python3.11
+lrwxr-xr-x  1 chenlb  wheel    42B 10 19 22:44 /usr/local/bin/python3 -> ../Cellar/python@3.13/3.13.0_1/bin/python3
+lrwxr-xr-x  1 chenlb  wheel    49B 10 19 22:44 /usr/local/bin/python3-config -> ../Cellar/python@3.13/3.13.0_1/bin/python3-config
+lrwxr-xr-x  1 chenlb  wheel    44B 10 19 22:48 /usr/local/bin/python3.10 -> ../Cellar/python@3.10/3.10.15/bin/python3.10
+lrwxr-xr-x  1 chenlb  wheel    51B 10 19 22:48 /usr/local/bin/python3.10-config -> ../Cellar/python@3.10/3.10.15/bin/python3.10-config
+lrwxr-xr-x  1 chenlb  wheel    44B 10 19 22:49 /usr/local/bin/python3.11 -> ../Cellar/python@3.11/3.11.10/bin/python3.11
+lrwxr-xr-x  1 chenlb  wheel    51B 10 19 22:49 /usr/local/bin/python3.11-config -> ../Cellar/python@3.11/3.11.10/bin/python3.11-config
+lrwxr-xr-x  1 chenlb  wheel    45B 10 19 22:49 /usr/local/bin/python3.12 -> ../Cellar/python@3.12/3.12.7_1/bin/python3.12
+lrwxr-xr-x  1 chenlb  wheel    52B 10 19 22:49 /usr/local/bin/python3.12-config -> ../Cellar/python@3.12/3.12.7_1/bin/python3.12-config
+lrwxr-xr-x  1 chenlb  wheel    45B 10 19 22:44 /usr/local/bin/python3.13 -> ../Cellar/python@3.13/3.13.0_1/bin/python3.13
+lrwxr-xr-x  1 chenlb  wheel    52B 10 19 22:44 /usr/local/bin/python3.13-config -> ../Cellar/python@3.13/3.13.0_1/bin/python3.13-config
+```
+
+## 试用 Python
+
+```bash
+python3
+Python 3.13.0 (main, Oct  7 2024, 05:02:14) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print('hello python')
+hello python
+>>> quit()
+```

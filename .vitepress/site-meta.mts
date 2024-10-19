@@ -19,7 +19,7 @@ const sidebar = {
         {text: 'FastAPI 简介', link: '/python/fastapi/'},
     ],
     "/python/": [
-        {text: 'Python 编程', link: '/python/'},
+        {text: 'Python 快速开始', link: '/python/'},
         {
             text: 'Python 基础',
             items: [
