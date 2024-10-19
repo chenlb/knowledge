@@ -23,6 +23,7 @@ const sidebar = {
         {
             text: 'Python 基础',
             items: [
+                {text: '字符串', link: '/python/base/string'},
                 {text: '依赖管理', link: '/python/base/deps'}
             ]
         },
