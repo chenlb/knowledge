@@ -1,4 +1,4 @@
-# Poetry : 一个 Python 依赖管理
+# Poetry : 一个 Python 依赖 和 打包管理工具
 
 ## 介绍
 
@@ -191,7 +191,7 @@ PyCharm 的终端会自动激活 poetry 创建的虚拟环境。
 ## 依赖包的版本约束
 
 
-### ^ 表述
+##### ^ 表述
 
 Caret (```^```) 脱字符表述
 
@@ -207,7 +207,7 @@ Caret (```^```) 脱字符表述
 | ^0      | \>=0.0.0 <1.0.0 |
 
 
-### ~ 表述
+##### ~ 表述
 
 Tilde (```~```) 波浪号表述
 
@@ -218,7 +218,7 @@ Tilde (```~```) 波浪号表述
 | ~1     | \>=1.0.0 <2.0.0 |
 
 
-### * 表述
+##### * 表述
 
 Wildcard (```*```) 通配符表述
 
@@ -228,7 +228,7 @@ Wildcard (```*```) 通配符表述
 | 1.*   | \>=1.0.0 <2.0.0 |
 | *     |    \>=0.0.0     |
 
-### 不相等表述
+##### 不相等表述
 
 ```text
 >= 1.2.0
@@ -237,19 +237,89 @@ Wildcard (```*```) 通配符表述
 != 1.2.3
 ```
 
-### 多条件表述
+##### 多条件表述
 
 ```text
 >= 1.2, < 1.5
 ```
 
-### 精确表述
+##### 精确表述
 
 ```text
 ==1.2.3
 ```
 
+## 依赖配置
 
+### extras
 
+比如用 uvicorn（是用 Python 实现的 ASGI Web 服务器） 的最小安装 ```standard```。
 
+使用 extras 属性：
 
+::: code-group
+```toml{6,10,12} [手工编辑 pyproject.toml]
+# ...
+
+[tool.poetry.dependencies]
+
+# 有 extras 为 standard
+uvicorn = {version = "^0.32.0", extras = ["standard"]}
+
+# 手工更新依赖配置后，需要手工安装这些依赖。
+# 更新 poetry.lock
+# poetry lock --no-update
+# 安装依赖
+# poetry install --no-root
+
+# ...
+```
+
+```bash [poetry add 安装]
+# 使用 @ 分隔版本约束
+poetry add "uvicorn[standard]@^0.32.0"
+```
+
+```bash [pip 等价安装]
+# pip 的安装方式，带版本约束。
+pip install "uvicorn[standard]>=0.32.0,<1.0.0"
+```
+:::
+
+### 私有 PyPI 源的包
+
+增加 私有 PyPI 源
+
+```toml{6}
+[[tool.poetry.source]]
+name = "my-pypi"
+# 替换成自己的私有 PyPI 源
+url = "http://pypi.my-xxx.com/simple/"
+# explicit 表示只能 显示声明 才能使用。
+priority = "explicit"
+```
+
+使用私有 PyPI 源的包
+
+::: code-group
+```toml{5} [手工编辑 pyproject.toml]
+# ...
+
+[tool.poetry.dependencies]
+# 使用 source 属性指定 私有 PyPI 源
+demo-xxx = {version = "^0.0.1", source = "my-pypi"}
+
+# ...
+```
+
+```bash [poetry add 安装]
+# 使用 --source 选项指定
+poetry add --source my-pypi demo-xxx@^0.0.1
+```
+
+```bash [pip 等价安装]
+# -i 选项指定 私有 PyPI 源
+# --trusted-host 选项指定可信 hostname
+pip install "demo-xxx" -i "http://pypi.my-xxx.com/simple/" --trusted-host "pypi.my-xxx.com"
+```
+:::

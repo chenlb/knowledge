@@ -30,7 +30,7 @@ const sidebar = {
         {
             text: 'Python 进阶',
             items: [
-                {text: '依赖管理-Poetry', link: '/python/advanced/poetry'},
+                {text: '依赖管理：Poetry', link: '/python/advanced/poetry'},
                 {text: '插件化', link: '/python/advanced/plugin'}
             ]
         }
