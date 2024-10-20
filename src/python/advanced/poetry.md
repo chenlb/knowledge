@@ -1,4 +1,6 @@
-TODO Python 依赖管理
+# Python 依赖管理
+
+## pip
 
 ## poetry
 
