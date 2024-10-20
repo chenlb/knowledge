@@ -25,12 +25,12 @@ const sidebar = {
             items: [
                 {text: '字符串', link: '/python/base/string'},
                 {text: '开发环境', link: '/python/base/env'},
-                {text: '依赖管理', link: '/python/base/deps'}
             ]
         },
         {
             text: 'Python 进阶',
             items: [
+                {text: '依赖管理-Poetry', link: '/python/advanced/poetry'},
                 {text: '插件化', link: '/python/advanced/plugin'}
             ]
         }
