@@ -70,7 +70,9 @@ hello python
 >>> quit()
 ```
 
-## Python 开发环境
+## Python IDE
+
+IDE(**I**ntegrated **D**evelopment **E**nvironment) 是集成开发环境。
 
 ### PyCharm CE 社区版
 
