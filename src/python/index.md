@@ -2,10 +2,6 @@
 
 ## 安装
 
-### 下载安装
-
-Python 官网[下载](https://www.python.org/downloads/)
-
 ### 从 macbook 的 brew 安装
 
 brew 环境请看 [brew 的安装](/pc/macbook-env#brew)
@@ -26,6 +22,8 @@ brew install python@12
 brew install python@11
 ```
 :::
+
+如果没有 mac 的 brew 环境，可以下载来安装： [Python 官网下载](https://www.python.org/downloads/)
 
 ## 验证安装
 
@@ -61,8 +59,20 @@ lrwxr-xr-x  1 chenlb  wheel    52B 10 19 22:44 /usr/local/bin/python3.13-config 
 
 ## 试用 Python
 
+命令行终端输入：
 ```bash
 python3
+
+# 再输入
+# print('hello python')
+
+# 退出
+# quit()
+```
+
+运行情况：
+
+```bash{3,5}
 Python 3.13.0 (main, Oct  7 2024, 05:02:14) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> print('hello python')
