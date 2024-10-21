@@ -137,7 +137,11 @@ trusted-host = mirrors.aliyun.com mirrors.ustc.edu.cn
 以安装 requests (是一个流行的 HTTP 工具库) 为例：
 
 ```bash
-(.venv) chenlb@Chenlb-Pro first-python % pip install requests
+pip install requests
+```
+
+运行结果：
+```bash
 Looking in indexes: http://mirrors.aliyun.com/pypi/simple/
 Collecting requests
   Downloading http://mirrors.aliyun.com/pypi/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl (64 kB)
@@ -165,7 +169,11 @@ Successfully installed certifi-2024.8.30 charset-normalizer-3.4.0 idna-3.10 requ
 
 查看 pip 的安装情况：
 ```bash
-(.venv) chenlb@Chenlb-Pro first-python % pip list                 
+pip list
+```
+
+运行结果：
+```bash                 
 Package            Version
 ------------------ ---------
 certifi            2024.8.30
@@ -178,7 +186,11 @@ urllib3            2.2.3
 
 查看单个已经安装包的情况：
 ```bash
-(.venv) chenlb@Chenlb-Pro first-python % pip show requests
+pip show requests
+```
+
+运行结果：
+```bash
 Name: requests
 Version: 2.32.3
 Summary: Python HTTP for Humans.
@@ -241,8 +253,12 @@ pip install -r requirements.txt
 ```
 
 安装后：
+```bash
+pip list
+```
+
+运行结果：
 ```bash{8-9}
-(.venv) chenlb@Chenlb-Pro first-python % pip list
 Package            Version
 ------------------ ---------
 certifi            2024.8.30
