@@ -125,7 +125,8 @@ trusted-host = mirrors.aliyun.com
 ```bash [多个源做主备]
 [global]
 timeout = 60
-index-url = http://mirrors.aliyun.com/pypi/simple/ https://mirrors.ustc.edu.cn/pypi/simple
+index-url = http://mirrors.aliyun.com/pypi/simple/
+extra-index-url = https://mirrors.ustc.edu.cn/pypi/simple
 
 [install]
 trusted-host = mirrors.aliyun.com mirrors.ustc.edu.cn
