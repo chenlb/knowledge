@@ -414,7 +414,8 @@ demo-poetry
     └── __init__.py
 ```
 
-5、pyproject.toml 修改包版本 ```version```，改为你想要的值。如 0.1.0
+5、pyproject.toml 修改包版本 ```version```，改为你想要的值。如 0.1.1
+
 6、发布
 ```bash
 # 选项 --build 表示，发布前构建。
