@@ -323,3 +323,126 @@ poetry add --source my-pypi demo-xxx@^0.0.1
 pip install "demo-xxx" -i "http://pypi.my-xxx.com/simple/" --trusted-host "pypi.my-xxx.com"
 ```
 :::
+
+
+## 运行程序
+
+如下载一个网页的代码，demo_poetry/get_page.py：
+
+```python
+import requests
+
+r = requests.get('http://www.baidu.com')
+# 只输出返回状态码
+print(r.status_code)
+
+```
+
+运行 demo_poetry/get_page.py 程序：
+::: code-group
+```bash [poetry run 来运行]
+# 正常 python 运行前加上 poetry run 
+poetry run python demo_poetry/get_page.py
+```
+
+```bash [普通终端来运行 - 激活虚拟环境]
+# 先查看 poetry 生成虚拟环境的目录在哪里。
+poetry env info
+
+# 找到 Virtualenv 段落下的 Path，样子下如：
+# Path:           /Users/chenlb/Library/Caches/pypoetry/virtualenvs/demo-poetry-HP3vkwtJ-py3.13
+
+# 激活虚拟环境，上面的 Path 加上 bin/activate
+source /Users/chenlb/Library/Caches/pypoetry/virtualenvs/demo-poetry-HP3vkwtJ-py3.13/bin/activate
+
+# 显示如下
+# (demo-poetry-py3.13) chenlb@Chenlb-Pro demo-poetry %
+
+# 激活虚拟环境后，项目需要的依赖就直接能找得到。
+# 直接 python 运行
+python demo_poetry/get_page.py
+```
+:::
+
+## 发布自己的 Python 包
+
+我以 PyPI 的 test 源来使用。
+
+1、先 [注册 test PyPI 账号](https://test.pypi.org/)，已经有账号了跳过。
+2、pyproject.toml 配置 testpypi 源，增加内容如下:
+```toml
+[[tool.poetry.source]]
+name = "testpypi"
+url = "https://test.pypi.org/legacy/"
+priority = "explicit"
+```
+
+3、配置 testpypi 的访问权限
+
+::: code-group
+```bash [api-token]
+# api-token 格式如：pypi-Xxx
+poetry config pypi-token.testpypi <你的 api-token>
+```
+
+```bash [http-basic]
+# 如果 PyPI 源使用 用户名 和 密码。
+# http-basic 密码：用户名 和 密码。
+# 注意：testpypi 不是使用 用户名 和 密码。
+poetry config pypi-token.testpypi <username> <password>
+```
+:::
+
+4、项目包改为 test PyPI 的格式：
+
+[官方的说明](https://packaging.python.org/en/latest/tutorials/packaging-projects)：
+* 包名：```example_package_YOUR_USERNAME_HERE```
+* pyproject.toml 的项目名，也一样是：```example_package_YOUR_USERNAME_HERE```
+
+其中 ```YOUR_USERNAME_HERE``` 是在 test PyPI 注册名，```example_package``` 是自定义的。
+
+比如我把上面的 ```demo_poetry``` 改为 ```demo_poetry_chenlb``` 。 看下目录结构：
+```text{3}
+demo-poetry
+├── README.md
+├── demo_poetry_chenlb
+│   ├── __init__.py
+│   └── get_page.py
+├── poetry.lock
+├── pyproject.toml
+└── tests
+    └── __init__.py
+```
+
+5、pyproject.toml 修改包版本 ```version```，改为你想要的值。如 0.1.0
+6、发布
+```bash
+# 选项 --build 表示，发布前构建。
+# 选项 -r 或 --repository 指定私有 PyPI 源。
+poetry publish -r testpypi --build
+```
+
+输出如：
+```text
+Building demo_poetry_chenlb (0.1.1)
+  - Building sdist
+  - Built demo_poetry_chenlb-0.1.1.tar.gz
+  - Building wheel
+  - Built demo_poetry_chenlb-0.1.1-py3-none-any.whl
+
+Publishing demo_poetry_chenlb (0.1.1) to testpypi
+ - Uploading demo_poetry_chenlb-0.1.1-py3-none-any.whl 100%
+ - Uploading demo_poetry_chenlb-0.1.1.tar.gz 100%
+```
+
+现在可以打开地址：https://test.pypi.org/project/demo_poetry_chenlb/ 看到内容了。
+
+
+## 参考资源
+
+Poetry 官方说明文档：
+* [基本用法](https://python-poetry.org/docs/basic-usage/)
+* [Poetry 命令](https://python-poetry.org/docs/cli/)
+* [依赖规范](https://python-poetry.org/docs/dependency-specification/)
+* [私有 PyPI 源](https://python-poetry.org/docs/repositories/#package-sources)
+* [发布](https://python-poetry.org/docs/repositories/#publishable-repositories)
