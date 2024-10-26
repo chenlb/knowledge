@@ -16,10 +16,13 @@ hero:
 
 features:
   - title: Python 基础
+    link: /python/
     details: Python 基础知识点
   - title: Python 进阶
+    link: /python/advanced/poetry
     details: Python 进阶知识点
   - title: 电脑办公
+    link: /pc/macbook-env
     details: 电脑、办公工具使用技巧
 ---
 
