@@ -43,7 +43,7 @@ export default defineConfig({
 
     footer: {
       message: '基于 MIT 许可发布.',
-      copyright: 'Copyright © 2024 <a href="https://github.com/chenlb" target="_blank">chenlb</a>'
+      copyright: 'Copyright © 2024-present <a href="https://github.com/chenlb" target="_blank">chenlb</a><br/><a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2024130284号</a>',
     }
   }
 })
