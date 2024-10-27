@@ -38,6 +38,10 @@ export default defineConfig({
     sidebar: sidebar,
     sidebarMenuLabel: '菜单',
 
+    search: {
+      provider: 'local'
+    },
+
     socialLinks: [
       { icon: 'github', link: 'https://github.com/chenlb/knowledge' },
     ],
