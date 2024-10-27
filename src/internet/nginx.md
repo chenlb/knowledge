@@ -77,6 +77,7 @@ http {
 
 ## 启动
 
+::: code-group
 ```bash [Linux]
 # 测试 conf 文件配置是否正确
 nginx -t
@@ -90,3 +91,4 @@ nginx -s quit
 # 开机自动启动
 systemctl enable nginx
 ```
+:::
