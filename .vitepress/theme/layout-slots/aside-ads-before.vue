@@ -15,8 +15,8 @@ if(adsConfig.adsense) {
   googleAdsense.ad_style = `display:inline-block;${div_style}`
 }
 
-// const show_ad = adsConfig.adsense
-const show_ad = false
+const show_ad = adsConfig.adsense
+// const show_ad = false
 
 const GoogleAdsense = show_ad
     ? defineAsyncComponent(() => import('../components/GoogleAdsense.vue'))
