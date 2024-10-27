@@ -12,6 +12,7 @@ export default defineConfig({
     hostname: 'http://chenlb.com'
   },
   themeConfig: {
+    logo: '/logo.svg',
     darkModeSwitchLabel: '主题',
     darkModeSwitchTitle: '切换到深色模式',
     docFooter: {
