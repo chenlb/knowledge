@@ -3,7 +3,6 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { initHmPlugin } from './hm';
-import { initFaviconPlugin } from "./favicon";
 import AsideAdsBefore from "./layout-slots/aside-ads-before.vue";
 import DocAfter from "./layout-slots/doc-after.vue";
 import HomeAfter from "./layout-slots/home-after.vue";
@@ -23,7 +22,5 @@ export default {
     // ...
     // 百度统计
     initHmPlugin();
-    // favicon
-    initFaviconPlugin();
   }
 } satisfies Theme
