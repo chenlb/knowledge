@@ -175,7 +175,7 @@ PyCharm 的终端会自动激活 poetry 创建的虚拟环境。
 
 如下图：
 
-![pycharm import poetry project](/img/ide/pycharm-import-poetry.jpg)
+![pycharm import poetry project](http://static.chenlb.com/img/ide/pycharm-import-poetry.jpg)
 
 
 ### 创建 Poetry 项目
@@ -186,7 +186,7 @@ PyCharm 的终端会自动激活 poetry 创建的虚拟环境。
 * 类型选择 "Poetry"
 * poetry 路径确认下，一般是 ```/usr/local/bin/poetry```
 
-![pycharm new poetry project](/img/ide/pycharm-new-poetry.jpg)
+![pycharm new poetry project](http://static.chenlb.com/img/ide/pycharm-new-poetry.jpg)
 
 ## 依赖包的版本约束
 

@@ -98,12 +98,12 @@ PyCharm CE 版本是免费的，基本 python 开发够用了。使用体验好�
 
 如：first-python
 
-![创建 Python 项目](/img/ide/pycharm-first-create-project.jpg)
+![创建 Python 项目](http://static.chenlb.com/img/ide/pycharm-first-create-project.jpg)
 
 ### 创建 python 文件并运行
 
 如：hello.py
 
-![创建 hello.py](/img/ide/pycharm-create-python-file.jpg)
+![创建 hello.py](http://static.chenlb.com/img/ide/pycharm-create-python-file.jpg)
 
-![编写 hello.py](/img/ide/pycharm-run-python-file.jpg)
+![编写 hello.py](http://static.chenlb.com/img/ide/pycharm-run-python-file.jpg)
