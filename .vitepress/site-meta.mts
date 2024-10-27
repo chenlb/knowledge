@@ -11,6 +11,16 @@ const nav = [
             }
         ]
     },
+    {
+        text: '互联网',
+        items: [
+            {
+                items: [
+                    { text: 'Nginx', link: '/internet/nginx' },
+                ]
+            }
+        ]
+    },
     { text: '电脑办公', link: '/pc/macbook-env' },
 ]
 
@@ -30,8 +40,16 @@ const sidebar = {
         {
             text: 'Python 进阶',
             items: [
-                {text: '依赖管理：Poetry', link: '/python/advanced/poetry'},
+                {text: '依赖和包管理：Poetry', link: '/python/advanced/poetry'},
                 {text: '插件化', link: '/python/advanced/plugin'}
+            ]
+        }
+    ],
+    "/internet/": [
+        {
+            text: "服务器",
+            items: [
+                {text: 'Nginx', link: '/internet/nginx'},
             ]
         }
     ],
