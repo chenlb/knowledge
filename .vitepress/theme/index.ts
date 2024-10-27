@@ -2,6 +2,7 @@
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import SiteLayout from './Layout.vue'
 import { initHmPlugin } from './hm';
 import AsideAdsBefore from "./layout-slots/aside-ads-before.vue";
 import DocAfter from "./layout-slots/doc-after.vue";
@@ -11,7 +12,7 @@ import './style.css'
 export default {
   extends: DefaultTheme,
   Layout: () => {
-    return h(DefaultTheme.Layout, null, {
+    return h(SiteLayout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
       'aside-ads-before': () => h(AsideAdsBefore),
       'doc-after': () => h(DocAfter),
