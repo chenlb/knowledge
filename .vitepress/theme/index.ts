@@ -11,14 +11,7 @@ import './style.css'
 
 export default {
   extends: DefaultTheme,
-  Layout: () => {
-    return h(SiteLayout, null, {
-      // https://vitepress.dev/guide/extending-default-theme#layout-slots
-      'aside-ads-before': () => h(AsideAdsBefore),
-      'doc-after': () => h(DocAfter),
-      'home-features-after': () => h(HomeAfter),
-    })
-  },
+  Layout: SiteLayout,
   enhanceApp({ app, router, siteData }) {
     // ...
     // 百度统计

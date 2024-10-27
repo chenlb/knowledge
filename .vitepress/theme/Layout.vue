@@ -5,6 +5,8 @@ import mediumZoom from 'medium-zoom';
 import { useRoute } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 
+import AsideAdsBefore from "./layout-slots/aside-ads-before.vue";
+
 const { Layout } = DefaultTheme;
 const route = useRoute();
 
@@ -23,7 +25,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <Layout />
+  <Layout>
+    <template #aside-ads-before>
+      <AsideAdsBefore />
+    </template>
+  </Layout>
 </template>
 
 <style>
