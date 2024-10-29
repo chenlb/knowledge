@@ -3,7 +3,7 @@ import { nav, sidebar } from './site-meta.mjs'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Chenlb Knowledge",
+  title: "chenlb 的知识库",
   description: "计算机、互联网相关技术的知识累积。",
   srcDir: './src',
   outDir: './dist',
@@ -65,8 +65,8 @@ export default defineConfig({
 
     footer: {
       message: '基于 MIT 许可发布.',
-      copyright: 'Copyright © 2024-present <a href="https://github.com/chenlb" target="_blank">chenlb</a>' +
-          '<br/><a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2024130284号</a>' +
+      copyright: 'Copyright © 2024-present <a href="https://github.com/chenlb" target="_blank">chenlb</a>.' +
+          '&nbsp;&nbsp;<a href="https://beian.miit.gov.cn" target="_blank">浙ICP备2024130284号</a>' +
           '<br/><img style="display:inline;margin:0 5px;width:16px;" src="/beian.png" sizes="32x32" alt="浙公网安备33011002017913" />' +
           '<a href="https://beian.mps.gov.cn/#/query/webSearch?code=33011002017913" rel="noreferrer" target="_blank">浙公网安备33011002017913</a>',
     }
