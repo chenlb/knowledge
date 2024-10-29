@@ -26,6 +26,9 @@ onMounted(() => {
 
 <template>
   <Layout>
+    <template #home-hero-image>
+      <img class="VPImage image-src" src="http://static.chenlb.com/img/logo/vitepress-logo-large.webp"  alt="logo"/>
+    </template>
     <template #aside-ads-before>
       <AsideAdsBefore />
     </template>
