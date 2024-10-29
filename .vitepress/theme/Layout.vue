@@ -29,6 +29,9 @@ onMounted(() => {
     <template #aside-ads-before>
       <AsideAdsBefore />
     </template>
+    <template #doc-bottom>
+      <div class="giscus" />
+    </template>
   </Layout>
 </template>
 
