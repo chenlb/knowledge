@@ -17,7 +17,7 @@ FastAPI 是一个用于构建 API 的现代、快速（高性能）的 web 框�
 
 预备知识：
 * [Python 安装](/python/)
-* [Python 虚拟环境；pip 及国内镜像](/python/env)
+* [Python 虚拟环境；pip 及国内镜像](/python/base/env)
 
 ### 安装
 
