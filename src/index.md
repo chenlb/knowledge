@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "Knowledge"
   text: "个人知识库"
-  tagline: "计算机、编程、互联网、AI等技术"
+  tagline: "计算机、编程、互联网、AI等技术探索和积累"
   actions:
     - theme: brand
       text: Python
