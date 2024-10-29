@@ -11,7 +11,7 @@ const { Layout } = DefaultTheme;
 const route = useRoute();
 
 const initZoom = () => {
-  mediumZoom('.VPContent img', { background: 'var(--vp-c-bg)' });
+  mediumZoom('.VPDoc img', { background: 'var(--vp-c-bg)' });
 };
 
 watch(
