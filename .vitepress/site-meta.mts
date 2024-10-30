@@ -26,7 +26,15 @@ const nav = [
 
 const sidebar = {
     "/python/fastapi/":[
-        {text: 'FastAPI 是什么？', link: '/python/fastapi/'},
+        {
+            text: '简介',
+            collapsed: true,
+            items: [
+                {text: 'FastAPI 是什么？', link: '/python/fastapi/'},
+                {text: '快速开始', link: '/python/fastapi/getting-started'},
+                {text: '请求参数', link: '/python/fastapi/request-params'},
+            ]
+        }
     ],
     "/python/": [
         {text: 'Python 快速开始', link: '/python/'},
