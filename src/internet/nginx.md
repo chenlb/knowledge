@@ -73,6 +73,9 @@ http {
             location = /50x.html {
         }
     }
+    
+    # ...
+}
 ```
 
 ## 启动
