@@ -22,7 +22,7 @@ brew install nginx
 
 主要是设置访问网站的主目录。修改 ```/etc/nginx/nginx.conf``` 文件：
 
-```text{38} [Linux]
+```nginx{38} [Linux]
 user nginx;
 worker_processes auto;
 error_log /var/log/nginx/error.log;
