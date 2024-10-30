@@ -57,7 +57,7 @@ uvicorn main:app --reload
 ```
 
 ::: details 点击打开运行结果：
-```text
+```log
 INFO:     Will watch for changes in these directories: ['~/Projects/fastapi-examples']
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
 INFO:     Started reloader process [50182] using WatchFiles
