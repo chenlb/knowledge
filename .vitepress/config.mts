@@ -11,6 +11,9 @@ export default defineConfig({
   sitemap: {
     hostname: 'http://chenlb.com'
   },
+  markdown: {
+    lineNumbers: true
+  },
   themeConfig: {
     logo: '/logo.svg',
     darkModeSwitchLabel: '主题',
