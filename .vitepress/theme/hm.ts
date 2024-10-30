@@ -1,6 +1,6 @@
 import { inBrowser } from 'vitepress';
 
-const SITE_ID = 'e96eb8d0dc519a852d11bc1b97ff28e7';
+const SITE_ID = '655673970173b659474f94d21d942aaa';
 
 declare global {
   interface Window {
