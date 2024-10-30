@@ -95,7 +95,7 @@ PyPI(**P**ython **P**ackage **I**ndex)是Python编程语言的软件存储库。
 
 
 ::: code-group
-```bash [中科大]
+```ini [中科大]
 [global]
 timeout = 60
 index-url = https://mirrors.ustc.edu.cn/pypi/simple
@@ -104,7 +104,7 @@ index-url = https://mirrors.ustc.edu.cn/pypi/simple
 trusted-host = mirrors.ustc.edu.cn
 ```
 
-```bash [清华]
+```ini [清华]
 [global]
 timeout = 60
 index-url = https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
@@ -113,7 +113,7 @@ index-url = https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 trusted-host = mirrors.tuna.tsinghua.edu.cn
 ```
 
-```bash [阿里云]
+```ini [阿里云]
 [global]
 timeout = 60
 index-url = http://mirrors.aliyun.com/pypi/simple/
@@ -122,7 +122,7 @@ index-url = http://mirrors.aliyun.com/pypi/simple/
 trusted-host = mirrors.aliyun.com
 ```
 
-```bash [多个源做主备]
+```ini [多个源做主备]
 [global]
 timeout = 60
 index-url = http://mirrors.aliyun.com/pypi/simple/
