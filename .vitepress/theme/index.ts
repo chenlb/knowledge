@@ -28,7 +28,7 @@ export default {
           category: 'Announcements', // default: `General`
           categoryId: 'DIC_kwDOM4fKBc4Cjw8h',
           mapping: 'pathname', // default: `pathname`
-          inputPosition: 'bottom', // default: `top`
+          inputPosition: 'top', // default: `top`
           lang: 'zh-CN', // default: `zh-CN`
           homePageShowComment: false, // Whether to display the comment area on the homepage, the default is false
           lightTheme: 'light', // default: `light`
