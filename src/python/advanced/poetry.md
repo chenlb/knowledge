@@ -61,7 +61,7 @@ tree demo-poetry
 ```
 
 目录结构：
-```text{5}
+```console{5}
 demo-poetry
 ├── README.md
 ├── demo_poetry
@@ -105,7 +105,7 @@ cd demo-poetry
 poetry add requests
 ```
 输出：
-```text{12}
+```console{12}
 Using version ^2.32.3 for requests
 
 Updating dependencies
@@ -402,7 +402,7 @@ poetry config pypi-token.testpypi <username> <password>
 其中 ```YOUR_USERNAME_HERE``` 是在 test PyPI 注册名，```example_package``` 是自定义的。
 
 比如我把上面的 ```demo_poetry``` 改为 ```demo_poetry_chenlb``` 。 看下目录结构：
-```text{3}
+```console{3}
 demo-poetry
 ├── README.md
 ├── demo_poetry_chenlb
@@ -424,7 +424,7 @@ poetry publish -r testpypi --build
 ```
 
 输出如：
-```text
+```console
 Building demo_poetry_chenlb (0.1.1)
   - Building sdist
   - Built demo_poetry_chenlb-0.1.1.tar.gz
