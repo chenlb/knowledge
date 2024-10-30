@@ -4,7 +4,7 @@
 
 使用单引号 ```'``` 或 双引号 ```"``` 表示。
 
-```python
+```console
 >>> print('hello world!')
 hello world!
 >>> print("hello world!")
@@ -18,7 +18,7 @@ hello world!
 
 在 Python 字符串前面加 ```r``` 表示原始字符串，不进行转义。
 
-```python{4}
+```console{4}
 >>> print('hello\nworld!')
 hello
 world!
@@ -42,7 +42,7 @@ print(txt)
 ```
 
 输出如下：
-```text:line-numbers
+```console
 第一行
 第二行，有"双引号"
 第三行
@@ -54,7 +54,7 @@ print(txt)
 
 变量（或叫参数）用大括号 ```{}```括起来。 
 
-```python{2}
+```console{2}
 >>> name = 'chenlb'
 >>> print(f'hello {name}!')
 hello chenlb!

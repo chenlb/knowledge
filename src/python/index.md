@@ -33,7 +33,7 @@ python3 -V
 ```
 
 结果如下：
-```text
+```console
 Python 3.13.0
 ```
 
@@ -43,7 +43,7 @@ ls -lh /usr/local/bin/python*
 ```
 
 我当前的环境：
-```text:line-numbers{2}
+```console{2}
 lrwxr-xr-x  1 chenlb  wheel    10B 12 19  2023 /usr/local/bin/python -> python3.11
 lrwxr-xr-x  1 chenlb  wheel    42B 10 19 22:44 /usr/local/bin/python3 -> ../Cellar/python@3.13/3.13.0_1/bin/python3
 lrwxr-xr-x  1 chenlb  wheel    49B 10 19 22:44 /usr/local/bin/python3-config -> ../Cellar/python@3.13/3.13.0_1/bin/python3-config
@@ -72,7 +72,7 @@ python3
 
 运行情况：
 
-```bash{3,5}
+```console{3,5}
 Python 3.13.0 (main, Oct  7 2024, 05:02:14) [Clang 15.0.0 (clang-1500.3.9.4)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
 >>> print('hello python')

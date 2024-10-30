@@ -28,7 +28,7 @@ python3 -m venv ~/Projects/first-python/.venv
 
 创建后，相关命令放到 .venv/bin 目录下。可以看下与系统环境的区别
 
-```bash:line-numbers{9,13,16}
+```console{9,13,16}
 chenlb@Chenlb-Pro first-python % ls -a
 .        ..       .idea    .venv    hello.py
 
@@ -55,7 +55,7 @@ Python 3.13.0
 :::
 
 如果要撤销激活，运行如下命令：
-```bash{2}
+```console{2}
 # 在激活的命令行，输入 deactivate
 (.venv) chenlb@Chenlb-Pro my-venv % deactivate
 chenlb@Chenlb-Pro my-venv %
@@ -142,7 +142,7 @@ pip install requests
 ```
 
 运行结果：
-```bash
+```console
 Looking in indexes: http://mirrors.aliyun.com/pypi/simple/
 Collecting requests
   Downloading http://mirrors.aliyun.com/pypi/packages/f9/9b/335f9764261e915ed497fcdeb11df5dfd6f7bf257d4a6a2a686d80da4d54/requests-2.32.3-py3-none-any.whl (64 kB)
@@ -174,7 +174,7 @@ pip list
 ```
 
 运行结果：
-```bash                 
+```console                 
 Package            Version
 ------------------ ---------
 certifi            2024.8.30
@@ -191,7 +191,7 @@ pip show requests
 ```
 
 运行结果：
-```bash
+```console
 Name: requests
 Version: 2.32.3
 Summary: Python HTTP for Humans.
@@ -210,7 +210,7 @@ pip freeze > requirements.txt
 ```
 
 requirements.txt 内容如下：
-```text
+```console
 certifi==2024.8.30
 charset-normalizer==3.4.0
 idna==3.10
@@ -259,7 +259,7 @@ pip list
 ```
 
 运行结果：
-```bash{8-9}
+```console{8-9}
 Package            Version
 ------------------ ---------
 certifi            2024.8.30
