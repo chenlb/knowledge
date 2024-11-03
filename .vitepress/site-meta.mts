@@ -51,6 +51,12 @@ const sidebar = {
                 {text: '依赖和包管理：Poetry', link: '/python/advanced/poetry'},
                 {text: '插件化', link: '/python/advanced/plugin'}
             ]
+        },
+        {
+            text: '精选库',
+            items: [
+                {text: 'dotenv 读取配置', link: '/python/best/dotenv'}
+            ]
         }
     ],
     "/internet/": [
