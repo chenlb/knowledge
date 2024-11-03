@@ -101,7 +101,7 @@ pip install pydantic-settings
 
 使用 pydantic-settings，先创建 `config.py`
 
-```python{11,20}
+```python{11,21}
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -113,6 +113,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         # 覆盖链 `.env.prod` -> `.env.pre` -> `.env.dev` -> `.env`
         env_file=('.env', '.env.dev', '.env.pre', '.env.prod')
+        , extra='ignore'
     )
 
     user: str
@@ -134,3 +135,5 @@ print(settings.url)
 类似 python-dotenv 配置，读取配置的优先级顺序 `.env.prod` -> `.env.pre` -> `.env.dev` -> `.env` 。
 
 在对应环境放 `.env.<dev|pre|prod>` 文件。
+
+详情，可以看 `pydantic-settings` 官方说明：[dotenv-env-support](https://docs.pydantic.dev/latest/concepts/pydantic_settings/#dotenv-env-support)
