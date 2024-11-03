@@ -35,7 +35,7 @@ chenlb.com
 
 场景：多个环境有对应有，开发环境 `.env.dev`、预发环境 `.env.pre`、正式环境 `.env.prod`
 
-相要实现的功能是，在什么环境下创建对应的 `.env.*` 文件，并取对应的变量值放到文件里。
+想要实现的功能是，在什么环境下创建对应的 `.env.*` 文件，并取对应的变量值放到文件里。
 
 ::: code-group
 ```dotenv [.env.dev]
@@ -89,3 +89,48 @@ http://pre.chenlb.com/
 http://prod.chenlb.com/
 ```
 :::
+
+## 使用 pydantic-settings 读配置
+
+使用 pydantic-settings 库后，读取配置可以实例化使用。借助 IDE 工具防止 使用 key 时编写错了。
+
+安装 pydantic-settings
+```bash
+pip install pydantic-settings
+```
+
+使用 pydantic-settings，先创建 `config.py`
+
+```python{11,20}
+from dotenv import load_dotenv
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# .env.* 文件有引用 .env 的变量需要加。如果没有引用不需要加。
+load_dotenv()
+
+
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        # 覆盖链 `.env.prod` -> `.env.pre` -> `.env.dev` -> `.env`
+        env_file=('.env', '.env.dev', '.env.pre', '.env.prod')
+    )
+
+    user: str
+    domain: str
+    url: str
+
+
+# 创建配置实例
+settings = Settings()
+```
+
+使用 `config.py` 中的配置：
+```python{1}
+from config import settings
+
+print(settings.url)
+```
+
+类似 python-dotenv 配置，读取配置的优先级顺序 `.env.prod` -> `.env.pre` -> `.env.dev` -> `.env` 。
+
+在对应环境放 `.env.<dev|pre|prod>` 文件。
