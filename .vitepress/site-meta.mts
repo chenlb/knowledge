@@ -28,7 +28,7 @@ const sidebar = {
     "/python/fastapi/":[
         {
             text: '简介',
-            collapsed: true,
+            collapsed: false,
             items: [
                 {text: 'FastAPI 是什么？', link: '/python/fastapi/'},
                 {text: '快速开始', link: '/python/fastapi/getting-started'},
@@ -37,23 +37,27 @@ const sidebar = {
         }
     ],
     "/python/": [
-        {text: 'Python 快速开始', link: '/python/'},
         {
             text: 'Python 基础',
+            collapsed: false,
             items: [
+                {text: '快速开始', link: '/python/'},
                 {text: '字符串', link: '/python/base/string'},
                 {text: '开发环境', link: '/python/base/env'},
             ]
         },
         {
             text: 'Python 进阶',
+            collapsed: false,
             items: [
+                {text: '日志记录', link: '/python/advanced/logging'},
                 {text: '依赖和包管理：Poetry', link: '/python/advanced/poetry'},
                 {text: '插件化', link: '/python/advanced/plugin'}
             ]
         },
         {
             text: '精选库',
+            collapsed: false,
             items: [
                 {text: 'dotenv 读取配置', link: '/python/best/dotenv'}
             ]
