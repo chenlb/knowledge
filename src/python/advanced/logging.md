@@ -82,6 +82,11 @@ format=%(asctime)s - %(name)s - %(levelname)s - %(message)s
 
 ## 配置生效
 
+使用 yaml 格式的日志配置文件，需要安装 `pyyaml`
+```bash
+pip install pyyaml
+```
+
 一般在启动程序里流入日志配置，如 `main.py`
 
 ::: code-group
