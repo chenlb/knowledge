@@ -22,6 +22,7 @@ const nav = [
         ]
     },
     { text: '电脑办公', link: '/pc/macbook-env' },
+    { text: '关于', link: '/about/' },
 ]
 
 const sidebar = {
@@ -73,6 +74,11 @@ const sidebar = {
     ],
     "/pc/": [
         {text: 'Macbook 基础环境', link: '/pc/macbook-env'},
+    ]
+    ,
+    "/about/": [
+        {text: '关于我', link: '/about/'},
+        {text: '关于本站', link: '/about/site'},
     ]
 }
 
