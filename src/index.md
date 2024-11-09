@@ -11,8 +11,11 @@ hero:
       text: Python
       link: /python/
     - theme: alt
-      text: 电脑办公
-      link: /pc/macbook-env
+      text: 大模型
+      link: /llm/tongyi/getting-started
+    - theme: alt
+      text: FastAPI
+      link: /python/fastapi/getting-started
 
 features:
   - icon:
@@ -21,9 +24,12 @@ features:
     link: /python/
     details: Python 基础知识点，Python 进阶知识点。
   - icon:
-      src: https://img.icons8.com/fluency/96/chatgpt--v2.png
+      # 通义
+      src: https://img.alicdn.com/imgextra/i4/O1CN01SdyYTH1Kfz6skC36o_!!6000000001192-2-tps-96-96.png
+      # openai
+      # src: https://img.icons8.com/fluency/96/chatgpt--v2.png
     title: 大模型
-    link: /llm/tongyi/
+    link: /llm/tongyi/getting-started
     details: LLM 大模型学习、探索、沉淀，走进 AI 时代。
   - title: 互联网
     icon:
