@@ -43,8 +43,8 @@ const sidebar = {
             collapsed: false,
             items: [
                 {text: '快速开始', link: '/python/'},
-                {text: '字符串', link: '/python/base/string'},
                 {text: '开发环境', link: '/python/base/env'},
+                {text: '字符串', link: '/python/base/string'},
             ]
         },
         {
