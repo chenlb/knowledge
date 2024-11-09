@@ -81,6 +81,7 @@ const sidebar = {
             items: [
                 {text: '简介', link: '/llm/tongyi/'},
                 {text: '快速开始', link: '/llm/tongyi/getting-started'},
+                {text: '兼容OpenAI', link: '/llm/tongyi/compatible-openai'},
             ]
         }
     ],
