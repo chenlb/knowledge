@@ -23,6 +23,7 @@ features:
   - icon:
       src: https://img.icons8.com/fluency/96/chatgpt--v2.png
     title: 大模型
+    link: /llm/tongyi/
     details: LLM 大模型学习、探索、沉淀，走进 AI 时代。
   - title: 互联网
     icon:

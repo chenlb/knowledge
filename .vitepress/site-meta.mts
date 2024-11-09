@@ -12,6 +12,16 @@ const nav = [
         ]
     },
     {
+        text: '大模型',
+        items: [
+            {
+                items: [
+                    { text: '通义', link: '/llm/tongyi/' },
+                ]
+            }
+        ]
+    },
+    {
         text: '互联网',
         items: [
             {
@@ -61,6 +71,16 @@ const sidebar = {
             collapsed: false,
             items: [
                 {text: 'dotenv 读取配置', link: '/python/best/dotenv'}
+            ]
+        }
+    ],
+    "/llm/tongyi/": [
+        {
+            text: "通义",
+            collapsed: false,
+            items: [
+                {text: '简介', link: '/llm/tongyi/'},
+                {text: '快速开始', link: '/llm/tongyi/getting-started'},
             ]
         }
     ],
