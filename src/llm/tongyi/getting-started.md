@@ -15,6 +15,14 @@
 3、获取API Key：在控制台的右上角选择API-KEY，然后创建API Key，用于通过API调用大模型。
 ![获取API Key](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9198748271/p856753.png)
 
+::: tip 通义千问系列模型新用户免费额度
+2024年9月19日0点起，针对新用户通义千问系列部分模型的免费额度有效期进行调整，由原来赠送30天有效期调整为180天有效期。
+
+2024年9月19日之前开通百炼赠送的免费额度有效期保持不变。仅针对2024年9月19日0点后开通百炼的用户生效。
+
+引用[官网说明](https://help.aliyun.com/zh/model-studio/new-free-quota#ae73d86c7f2ub)：查看免费额度，阿里云百炼控制台后，点击模型广场，选择模型并点击下方的查看详情按钮，即可查看免费额度、剩余额度及到期时间。
+:::
+
 ## Python 使用 DashScope
 
 ### 准备工作
