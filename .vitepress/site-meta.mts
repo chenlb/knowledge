@@ -62,7 +62,7 @@ const sidebar = {
             collapsed: false,
             items: [
                 {text: '日志记录', link: '/python/advanced/logging'},
-                {text: '依赖和包管理：Poetry', link: '/python/advanced/poetry'},
+                {text: 'Poetry：依赖和包管理', link: '/python/advanced/poetry'},
                 {text: '插件化', link: '/python/advanced/plugin'}
             ]
         },
@@ -70,7 +70,8 @@ const sidebar = {
             text: '精选库',
             collapsed: false,
             items: [
-                {text: 'dotenv 读取配置', link: '/python/best/dotenv'}
+                {text: 'dotenv：读取配置', link: '/python/best/dotenv'},
+                {text: 'Jinja2：模板引擎', link: '/python/best/jinja2'},
             ]
         }
     ],
@@ -81,7 +82,7 @@ const sidebar = {
             items: [
                 {text: '简介', link: '/llm/tongyi/'},
                 {text: '快速开始', link: '/llm/tongyi/getting-started'},
-                {text: '兼容OpenAI', link: '/llm/tongyi/compatible-openai'},
+                {text: '兼容 OpenAI', link: '/llm/tongyi/compatible-openai'},
             ]
         }
     ],
