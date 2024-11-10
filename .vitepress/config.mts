@@ -14,6 +14,10 @@ export default defineConfig({
   markdown: {
     lineNumbers: true
   },
+  ignoreDeadLinks: [
+    // ignore all localhost links
+    /^https?:\/\/localhost/,
+  ],
   themeConfig: {
     logo: '/logo.svg',
     darkModeSwitchLabel: '主题',

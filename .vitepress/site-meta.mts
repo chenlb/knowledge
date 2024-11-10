@@ -15,8 +15,18 @@ const nav = [
         text: '大模型',
         items: [
             {
+                text: '模型服务',
                 items: [
-                    { text: '通义', link: '/llm/tongyi/' },
+
+                    { text: '通义', link: '/llm/tongyi/getting-started' },
+                ]
+            },
+            {
+                text: 'LLM 生态',
+                items: [
+
+                    { text: 'Langfuse', link: '/llm/langfuse/' },
+
                 ]
             }
         ]
@@ -83,6 +93,16 @@ const sidebar = {
                 {text: '简介', link: '/llm/tongyi/'},
                 {text: '快速开始', link: '/llm/tongyi/getting-started'},
                 {text: '兼容 OpenAI', link: '/llm/tongyi/compatible-openai'},
+            ]
+        }
+    ],
+    "/llm/langfuse/": [
+        {
+            text: "Langfuse",
+            collapsed: false,
+            items: [
+                {text: '简介', link: '/llm/langfuse/'},
+                {text: '快速开始', link: '/llm/langfuse/getting-started'},
             ]
         }
     ],
