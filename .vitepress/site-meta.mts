@@ -103,6 +103,7 @@ const sidebar = {
             items: [
                 {text: '简介', link: '/llm/langfuse/'},
                 {text: '快速开始', link: '/llm/langfuse/getting-started'},
+                {text: 'Token 计价', link: '/llm/langfuse/model-token-pricing'},
             ]
         }
     ],
