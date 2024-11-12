@@ -18,6 +18,16 @@ export default defineConfig({
     // ignore all localhost links
     /^https?:\/\/localhost/,
   ],
+  head: [
+    [
+        'script',
+      {
+        async: '',
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3472666461950340',
+        crossOrigin: 'anonymous'
+      }
+    ]
+  ],
   themeConfig: {
     logo: '/logo.svg',
     darkModeSwitchLabel: '主题',
