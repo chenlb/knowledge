@@ -60,6 +60,7 @@ function apply_adsense(): void {
   my_time.value = Date.now()
   const adsense_code = create_adsense()
   container.value.appendChild(adsense_code)
+  // console.log(`apply_adsense ${my_time.value}`)
 }
 
 function init() {
@@ -96,7 +97,7 @@ if (adsenseOptions) {
 }
 </script>
 <template>
-  <div class="ad-container" :id="_id_dev" ref="container" />
+  <div class="ad-container" :id="_id_dev" ref="container" :style="adsenseOptions.div_style" />
 </template>
 <style scoped>
 .ad-container {

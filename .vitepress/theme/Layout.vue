@@ -5,6 +5,8 @@ import mediumZoom from 'medium-zoom';
 import { useRoute } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 
+import AdsenseDocAfter from './layout-slots/doc-after.vue'
+
 const { Layout } = DefaultTheme;
 const route = useRoute();
 
@@ -26,6 +28,9 @@ onMounted(() => {
   <Layout>
     <template #home-hero-image>
       <img class="VPImage image-src" src="http://static.chenlb.com/img/logo/vitepress-logo-large.webp"  alt="logo"/>
+    </template>
+    <template #doc-after>
+      <AdsenseDocAfter />
     </template>
   </Layout>
 </template>
