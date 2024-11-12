@@ -100,9 +100,6 @@ if (adsenseOptions) {
 </template>
 <style scoped>
 .ad-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+
 }
 </style>

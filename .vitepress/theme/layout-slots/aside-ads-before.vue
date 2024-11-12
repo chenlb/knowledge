@@ -30,6 +30,6 @@ const GoogleAdsense = show_ad
 </template>
 <style scoped>
 .ad-aside {
-
+  margin-left: 16px;
 }
 </style>
