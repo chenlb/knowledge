@@ -33,9 +33,8 @@ onMounted(() => {
     <template #aside-ads-before>
       <AsideAdsBefore />
     </template>
-    <template #doc-bottom>
-      <AdDocAfter />
-      <div class="giscus" />
+    <template #doc-after>
+      <div class="ad-div"><AdDocAfter /></div>
     </template>
   </Layout>
 </template>
@@ -44,5 +43,9 @@ onMounted(() => {
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
   z-index: 2147483647;
+}
+.ad-div {
+  margin-top: 24px;
+  border-top: 1px solid var(--vp-c-divider);
 }
 </style>
