@@ -164,24 +164,4 @@ export default {
 } satisfies Theme
 ```
 
-在 `.vitepress/theme/Layout.vue` 自定义布局插入评论：
-```vue{8-10}
-<script lang="ts" setup>
-// ...
-</script>
-
-<template>
-  <Layout>
-    <!-- ... -->
-    <template #doc-bottom>
-      <div class="giscus" />
-    </template>
-  </Layout>
-</template>
-
-<style>
-/* ... */
-</style>
-```
-
-效果见本页文档底部。
+不需要插入其它代码。 效果见本页文档底部。
