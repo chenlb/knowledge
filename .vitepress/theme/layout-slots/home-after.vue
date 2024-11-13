@@ -6,7 +6,7 @@ import { adsConfig } from "../ads.d.ts"
 
 const googleAdsense: AdsenseSlotOptions = {}
 
-const div_style = 'width:1152px;height:120px'
+const div_style = 'width:1152px;height:120px;'
 
 if(adsConfig.adsense) {
   googleAdsense.ad_client = adsConfig.adsense.ad_client

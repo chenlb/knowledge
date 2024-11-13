@@ -6,6 +6,7 @@ import { useRoute } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 
 import AdsenseDocAfter from './layout-slots/doc-after.vue'
+import AdsenseAside from './layout-slots/aside-ads-before.vue'
 
 const { Layout } = DefaultTheme;
 const route = useRoute();
@@ -32,6 +33,9 @@ onMounted(() => {
     <template #doc-after>
       <AdsenseDocAfter />
     </template>
+    <template #aside-ads-before>
+      <AdsenseAside />
+    </template>
   </Layout>
 </template>
 
@@ -39,5 +43,8 @@ onMounted(() => {
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
   z-index: 2147483647;
+}
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
 }
 </style>
