@@ -11,8 +11,8 @@ const div_style = 'width:224px;height:350px;'
 if(adsConfig.adsense) {
   googleAdsense.ad_client = adsConfig.adsense.ad_client
   googleAdsense.ad_slot = 3418125620
-  googleAdsense.div_style = div_style
-  googleAdsense.ad_style = `display:inline-block;${div_style}`
+  // googleAdsense.div_style = div_style
+  // googleAdsense.ad_style = `display:inline-block;${div_style}`
 }
 
 const show_ad = adsConfig.adsense
@@ -24,7 +24,7 @@ const GoogleAdsense = show_ad
 </script>
 
 <template>
-  <div class="ad-aside" :style="div_style">
+  <div class="ad-aside">
     <GoogleAdsense v-if="show_ad" :google-adsense="googleAdsense" />
   </div>
 </template>

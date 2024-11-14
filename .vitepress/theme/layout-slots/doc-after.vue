@@ -24,7 +24,7 @@ const GoogleAdsense = show_ad
 </script>
 
 <template>
-  <div class="ad-doc-after" :style="div_style">
+  <div class="ad-doc-after">
     <GoogleAdsense v-if="show_ad" :google-adsense="googleAdsense" />
   </div>
 </template>

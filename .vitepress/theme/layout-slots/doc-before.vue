@@ -6,17 +6,17 @@ import { adsConfig } from "../ads.d.ts"
 
 const googleAdsense: AdsenseSlotOptions = {}
 
-const div_style = 'width:1152px;height:120px;'
+const div_style = 'width:824px;height:120px;'
 
 if(adsConfig.adsense) {
   googleAdsense.ad_client = adsConfig.adsense.ad_client
-  googleAdsense.ad_slot = 3801671952
+  googleAdsense.ad_slot = 8301850861
   googleAdsense.div_style = div_style
-  // googleAdsense.ad_style = `display:inline-block;${div_style}`
+  googleAdsense.ad_style = `display:inline-block;${div_style}`
 }
 
-// const show_ad = adsConfig.adsense
-const show_ad = false
+const show_ad = adsConfig.adsense
+// const show_ad = false
 
 const GoogleAdsense = show_ad
     ? defineAsyncComponent(() => import('../components/GoogleAdsense.vue'))
@@ -24,16 +24,12 @@ const GoogleAdsense = show_ad
 </script>
 
 <template>
-  <div class="blank"/>
-  <div class="container ad-home-after">
+  <div class="ad-doc-before">
     <GoogleAdsense v-if="show_ad" :google-adsense="googleAdsense" />
   </div>
 </template>
 <style scoped>
-.blank {
-  margin: 24px auto;
-}
-.ad-home-after {
-  margin: 0 auto;
+.ad-doc-before {
+  margin-bottom: 24px;
 }
 </style>

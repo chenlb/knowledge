@@ -25,7 +25,7 @@ function create_adsense(): HTMLElement {
   adsense_div.id = _id
   if(adsenseOptions.div_style) {
     // 自动尺寸
-    adsense_div.setAttribute('style', `${adsenseOptions.div_style}`)
+    // adsense_div.setAttribute('style', `${adsenseOptions.div_style}`)
   }
 
   const script = document.createElement('script');
@@ -97,7 +97,7 @@ if (adsenseOptions) {
 }
 </script>
 <template>
-  <div class="ad-container" :id="_id_dev" ref="container" :style="adsenseOptions.div_style" />
+  <div class="ad-container" :id="_id_dev" ref="container" />
 </template>
 <style scoped>
 .ad-container {
