@@ -5,6 +5,7 @@ import mediumZoom from 'medium-zoom';
 import { useRoute } from 'vitepress';
 import DefaultTheme from 'vitepress/theme';
 
+import AdsenseHomeImage from './layout-slots/home-hero-image.vue'
 import AdsenseDoc from './layout-slots/doc-before.vue'
 import AdsenseAside from './layout-slots/aside-ads-before.vue'
 
@@ -28,7 +29,7 @@ onMounted(() => {
 <template>
   <Layout>
     <template #home-hero-image>
-      <img class="VPImage image-src" src="http://static.chenlb.com/img/logo/vitepress-logo-large.webp"  alt="logo"/>
+      <AdsenseHomeImage />
     </template>
     <template #doc-before>
       <AdsenseDoc />
