@@ -364,7 +364,9 @@ python demo_poetry/get_page.py
 ```
 :::
 
-## 发布自己的 Python 包
+## 发布
+
+### 先体验发布（testpypi）
 
 我以 PyPI 的 test 源来使用。
 
@@ -438,6 +440,62 @@ Publishing demo_poetry_chenlb (0.1.1) to testpypi
 
 现在可以打开地址：https://test.pypi.org/project/demo_poetry_chenlb/ 看到内容了。
 
+### 正式发布
+
+参考：[How To Publish Python Packages to PyPI using Poetry on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-publish-python-packages-to-pypi-using-poetry-on-ubuntu-22-04)
+
+::: tip 说明
+1、不需要在 `pyproject.toml` 指定源
+
+2、包名不需要加 ```*_YOUR_USERNAME_HERE```。按自己定义的来。但建议不跟其它 pypi 冲突。
+
+3、配置 api-token
+
+```bash
+# api-token 格式如：pypi-Xxx
+poetry config pypi-token.pypi <你的 api-token>
+```
+
+4、发布时不需要指定源。直接:
+
+```bash
+poetry publish
+# 或带上 --build
+# poetry publish --build
+```
+:::
+
+发布示例（[langfarm](https://github.com/langfarm/langfarm)）：
+* 成功：不需要指定 pypi 源
+* 失败：多余地指定 pypi 源
+
+::: code-group
+```console [成功]
+(langfarm-py3.11) chenlb@Chenlb-Pro langfarm % poetry publish --build        
+There are 2 files ready for publishing. Build anyway? (yes/no) [no] yes
+Building langfarm (0.1.0)
+  - Building sdist
+  - Built langfarm-0.1.0.tar.gz
+  - Building wheel
+  - Built langfarm-0.1.0-py3-none-any.whl
+
+Publishing langfarm (0.1.0) to PyPI
+ - Uploading langfarm-0.1.0-py3-none-any.whl 100%
+ - Uploading langfarm-0.1.0.tar.gz 100%
+```
+
+```console [失败]
+(langfarm-py3.11) chenlb@Chenlb-Pro langfarm % poetry publish -r pypi --build
+Building langfarm (0.1.0)
+  - Building sdist
+  - Built langfarm-0.1.0.tar.gz
+  - Building wheel
+  - Built langfarm-0.1.0-py3-none-any.whl
+
+
+Repository pypi is not defined
+```
+:::
 
 ## 参考资源
 
@@ -447,3 +505,4 @@ Poetry 官方说明文档：
 * [依赖规范](https://python-poetry.org/docs/dependency-specification/)
 * [私有 PyPI 源](https://python-poetry.org/docs/repositories/#package-sources)
 * [发布](https://python-poetry.org/docs/repositories/#publishable-repositories)
+* [How To Publish Python Packages to PyPI using Poetry on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-publish-python-packages-to-pypi-using-poetry-on-ubuntu-22-04)
