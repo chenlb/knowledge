@@ -104,6 +104,14 @@ const sidebar = {
                 {text: '简介', link: '/llm/langfuse/'},
                 {text: '快速开始', link: '/llm/langfuse/getting-started'},
                 {text: 'Token 计价', link: '/llm/langfuse/model-token-pricing'},
+                {text: 'Tracing 使用示例', link: '/llm/langfuse/tracing-examples'},
+            ]
+        },
+        {
+            text: "进阶",
+            collapsed: false,
+            items: [
+                {text: 'Tracing API', link: '/llm/langfuse/tracing-api'},
             ]
         }
     ],
