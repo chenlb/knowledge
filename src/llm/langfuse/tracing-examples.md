@@ -232,7 +232,6 @@ print("完成！")
 同样的，Langfuse 官方的 Callback **取不到通义的 token 用量**。要能取到 token 用量，解决方法有：
 * 继承 `langfuse.callback.langchain.LangchainCallbackHandler` 覆盖 on_llm_end 方法，实现得到 token。每次使用自己实现的 Callback
 * 装饰 `langfuse.callback.langchain._parse_usage` 函数。我用这种方式实现（实现已经放到 github [langfarm](https://github.com/langfarm/langfarm)，已经发布到 PyPI），使用时更方便。
-* 使用 [langfuse 更底层的 api](/llm/langfuse/tracing-api)。
 
 我以使用第二种方案：langfarm 为示例，只需要导入语句改一下。
 
