@@ -125,7 +125,77 @@ if __name__ == '__main__':
 
 ![tongyi-with-langfuse-observe](http://static.chenlb.com/img/langfuse/tongyi-with-langfuse-observe.png)
 
-Langfuse 天生对 openai 做了很好的兼容。对 tongyi 取不到 token 的用量。这种情况下，还是推荐使用 openai 来调用通义大模型。
+Langfuse 天生对 openai 做了很好的兼容。对 tongyi 取不到 token 的用量（因为 langfuse 没有对 tongyi 进行集成），需要额外处理。
+
+好在 Langfuse 还提供了一些函数来处理其它信息的上报，使用 `langfuse_context` 的相关方法：
+* `langfuse_context.update_current_observation` - 更新当前的 observation 相关属性
+* `langfuse_context.update_current_trace` - 更新 trace 相关属性
+
+改造上面的示例：
+```python{7,27-35}
+import os
+import time
+
+from dotenv import load_dotenv
+from dashscope import Generation
+from langfuse.decorators import observe
+from langfuse.decorators import langfuse_context
+
+# 加载 .env 配置文件的内容
+load_dotenv()
+
+
+@observe(as_type="generation")
+def tongyi_generation(messages: list[dict]) -> str:
+    model_name = "qwen-plus"
+    response = Generation.call(
+        # load_dotenv() 已从 .env 文件读的，可以直接使用。
+        api_key=os.getenv("DASHSCOPE_API_KEY"),
+        # 模型列表：https://help.aliyun.com/zh/model-studio/getting-started/models
+        model=model_name,
+        messages=messages,
+        result_format="message"
+    )
+
+    if response.status_code == 200:
+        output = response.output.choices[0].message.content
+        langfuse_context.update_current_observation(
+            name="Dashscope-generation", model=model_name
+            , input=messages, output=output
+            , usage={
+                "input": response.usage['input_tokens']
+                , "output": response.usage['output_tokens']
+                , "unit": "TOKENS"
+            }
+        )
+        return output
+    else:
+        tip = "请参考文档：https://help.aliyun.com/zh/model-studio/developer-reference/error-code"
+        raise Exception(f"HTTP返回码：{response.status_code}；错误码：{response.code}；错误信息：{response.message}。{tip}")
+
+
+@observe(name="tongyi_completion_v2")
+def tongyi_completion(input_query: str) -> str:
+    messages = [
+        {'role': 'system', 'content': '你是小学语文老师。'},
+        {'role': 'user', 'content': input_query}
+    ]
+    return tongyi_generation(messages)
+
+
+if __name__ == '__main__':
+    query = '请用50个字描写春天的景色。'
+    r = tongyi_completion(query)
+    print(r)
+    print("等待 5 秒，等待 langfuse 异步上报。")
+    time.sleep(5)
+    print("end!")
+
+```
+
+效果:
+
+![tongyi-with-langfuse-observe-v2](http://static.chenlb.com/img/langfuse/tongyi-with-langfuse-observe-v2.png)
 
 ## Langchain Callback
 
