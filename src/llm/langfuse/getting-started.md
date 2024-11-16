@@ -74,8 +74,9 @@ LANGFUSE_HOST="http://localhost:3000"
 
 写使用 Langfuse 追踪 OpenAI 调用的代码，如 `tongyi_openai_with_langfuse.py`。
 
-```python{3-4,18}
+```python{4-5,12}
 import os
+import time
 
 from langfuse.openai import OpenAI
 from langfuse.decorators import observe
@@ -84,16 +85,13 @@ from dotenv import load_dotenv
 # 加载 .env 配置文件的内容
 load_dotenv()
 
-query = '请用50个字描写春天的景色。'
-
-messages = [
-    {'role': 'system', 'content': '你是小学语文老师。'},
-    {'role': 'user', 'content': query}
-]
-
 
 @observe()
 def get_completion(input_query: str) -> str:
+    messages = [
+        {'role': 'system', 'content': '你是小学语文老师。'},
+        {'role': 'user', 'content': input_query}
+    ]
     try:
         client = OpenAI(
             # load_dotenv() 已从 .env 文件读的，可以直接使用。
@@ -114,8 +112,13 @@ def get_completion(input_query: str) -> str:
 
 
 if __name__ == '__main__':
+    query = '请用50个字描写春天的景色。'
+
     r = get_completion(query)
     print(r)
+    print("等待 5 秒，等待 langfuse 异步上报。")
+    time.sleep(5)
+    print("end!")
 
 ```
 
