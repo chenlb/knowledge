@@ -26,6 +26,15 @@ export default defineConfig({
         src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3472666461950340',
         crossOrigin: 'anonymous'
       }
+    ],[
+      'script', {
+        charset: 'utf-8',
+        id: 'LA_COLLECT',
+        src: '//sdk.51.la/js-sdk-pro.min.js'
+      }
+    ],[
+      'script', {},
+      'LA.init({id:"3KKmyFdMIc01NBWw",ck:"3KKmyFdMIc01NBWw",autoTrack:true,hashMode:true})'
     ]
   ],
   themeConfig: {
