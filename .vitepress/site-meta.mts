@@ -6,6 +6,8 @@ const nav = [
             {
                 items: [
                     { text: 'Python 编程', link: '/python/' },
+                    { text: 'Logging', link: '/python/advanced/logging'},
+                    { text: 'Poetry', link: '/python/advanced/poetry' },
                     { text: 'FastAPI', link: '/python/fastapi/' },
                 ]
             }
@@ -26,6 +28,7 @@ const nav = [
                 items: [
 
                     { text: 'Langfuse', link: '/llm/langfuse/' },
+                    { text: '通义集成 Langfuse', link: '/llm/tongyi/integration-langfuse' },
 
                 ]
             }
