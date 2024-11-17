@@ -2,7 +2,7 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import SiteLayout from './Layout.vue'
-import { initHmPlugin } from './hm';
+
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
 import { toRefs } from "vue";
@@ -13,8 +13,6 @@ export default {
   Layout: SiteLayout,
   enhanceApp({ app, router, siteData }) {
     // ...
-    // 百度统计
-    initHmPlugin();
   },
   setup() {
     // Get frontmatter and route
