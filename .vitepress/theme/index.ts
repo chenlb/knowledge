@@ -29,8 +29,8 @@ export default {
           inputPosition: 'top', // default: `top`
           lang: 'zh-CN', // default: `zh-CN`
           homePageShowComment: false, // Whether to display the comment area on the homepage, the default is false
-          lightTheme: 'light', // default: `light`
-          darkTheme: 'light', // default: `transparent_dark`
+          // lightTheme: 'light', // default: `light`
+          // darkTheme: 'light', // default: `transparent_dark`
           strict: "0",
           reactionsEnabled: '1',
           emitMetadata: '0',
