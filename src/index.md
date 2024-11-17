@@ -11,8 +11,11 @@ hero:
       text: Python
       link: /python/
     - theme: alt
-      text: 大模型
+      text: 通义大模型
       link: /llm/tongyi/getting-started
+    - theme: alt
+      text: Langfuse
+      link: /llm/langfuse/getting-started
     - theme: alt
       text: FastAPI
       link: /python/fastapi/getting-started
