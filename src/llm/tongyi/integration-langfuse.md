@@ -239,3 +239,93 @@ if __name__ == '__main__':
 效果如下：
 
 ![tongyi-hook-by-langfarm](http://static.chenlb.com/img/tongyi/tongyi-hook-by-langfarm.png)
+
+
+## 使用 Langchain 的 Tongyi
+
+Langchain 社区包里有 Tongyi 在 langchain 生态里使用。同样使用 Langfuse 的 Callback 也取不到 token 用量。
+
+追加安装 langchain 社区包 依赖：
+```bash
+pip install langchain-community
+```
+
+::: details  点击查看：在 Langchain 里，使用 Langfuse 实现的 Callback 来上报 Tracing 的基本代码
+```python{4-5,10-11,14}
+import time
+
+from dotenv import load_dotenv
+from langchain_community.llms import Tongyi
+from langfuse.callback import CallbackHandler
+
+# 加载 .env 配置
+load_dotenv()
+
+llm = Tongyi(model="qwen-plus")
+langfuse_handler = CallbackHandler()
+
+query = '请用50个字描写春天的景色。'
+result = llm.invoke(query, config={"callbacks": [langfuse_handler]})
+
+print(result)
+print("等待 5 秒，等待 langfuse 异步上报。")
+time.sleep(5)
+print("完成！")
+
+```
+:::
+
+要能取到 token 用量，解决方法有：
+* 继承 `langfuse.callback.langchain.LangchainCallbackHandler` 覆盖 on_llm_end 方法，实现得到 token。每次使用自己实现的 Callback
+* 装饰 `langfuse.callback.langchain._parse_usage` 函数。我用这种方式实现（实现已经放到 github [langfarm](https://github.com/langfarm/langfarm)，已经发布到 PyPI），使用时更方便。
+
+
+我以使用第二种方案：langfarm 为示例，只需要导入语句改一下。
+
+langfarm 上面已经安装，没有安装的可以安装：
+```bash
+# langfarm 0.1.1
+pip install langfarm
+```
+
+代码：
+```python{7}
+import time
+
+from dotenv import load_dotenv
+from langchain_community.llms import Tongyi
+# from langfuse.callback import CallbackHandler
+# 把 langfuse.callback 换成 langfarm.hooks.langfuse.callback
+from langfarm.hooks.langfuse.callback import CallbackHandler
+
+# 加载 .env 配置
+load_dotenv()
+
+llm = Tongyi(model="qwen-plus")
+langfuse_handler = CallbackHandler(trace_name="with_hooks")
+
+query = '请用50个字描写春天的景色。'
+result = llm.invoke(query, config={"callbacks": [langfuse_handler]})
+
+print(result)
+print("等待 5 秒，等待 langfuse 异步上报。")
+time.sleep(5)
+print("完成！")
+
+```
+
+核心是替换 Langfuse 实现的 `langfuse.callback` 包：
+```diff
+- from langfuse.callback import CallbackHandler
++ from langfarm.hooks.langfuse.callback import CallbackHandler
+```
+
+使用效果：
+
+![tongyi-with-langfuse-callback](http://static.chenlb.com/img/langfuse/tongyi-with-langfuse-callback.png)
+
+## 使用 Langfuse API
+
+使用 Langfuse SDK 的 API，代码入侵相对多一点。以上方法都没法实现功能的可以直接使用 API。
+
+详情看：[Tracing API](/llm/langfuse/tracing-api)
