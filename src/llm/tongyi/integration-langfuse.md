@@ -150,6 +150,12 @@ DashScope 是使用通义大模型的官方 SDK。它与 Langfuse 集成度没�
 
 代码实现请看：[dashscope sdk 使用 langfuse_context 增加 token 用量上报](/llm/langfuse/tracing-examples#langfuse-context)
 
+安装依赖库：
+```bash
+# 通义大模型服务 sdk
+pip install dashscope
+```
+
 核心的是使用 `langfuse_context.update_current_observation` 上报 token 用量数据。如下内容：
 
 ```python{7,10-14}
