@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
 这种方式很方便，也不需要 通义 SDK（Dashscope），功能也完善。效果如下：
 
-![tongyi-openai-langfuse-observe](/img/tongyi/tongyi-openai-langfuse-observe.png)
+![tongyi-openai-langfuse-observe](http://static.chenlb.com/img/tongyi/tongyi-openai-langfuse-observe.png)
 
 ::: tip 说明
 当然，也可以使用在 `@observe` 装饰的函数内，使用 `langfuse_context.*` 实现更多上报细节的控制。
@@ -135,8 +135,107 @@ print("完成！")
 
 效果：
 
-![tongyi-openai-langchain-callback](/img/tongyi/tongyi-openai-langchain-callback.png)
+![tongyi-openai-langchain-callback](http://static.chenlb.com/img/tongyi/tongyi-openai-langchain-callback.png)
 
 ::: tip 说明
 当前的 langchain-openai 0.2.8 版本。使用 OpenAI 类，报 404 错，可能通义没有实现。只能用 ChatOpenAI 类。
 :::
+
+
+## 使用 DashScope SDK
+
+DashScope 是使用通义大模型的官方 SDK。它与 Langfuse 集成度没有 OpenAI 高。正常情况取不到 token 用量数，需要增加一个代码。
+
+### @observe 方式
+
+代码实现请看：[dashscope sdk 使用 langfuse_context 增加 token 用量上报](/llm/langfuse/tracing-examples#langfuse-context)
+
+核心的是使用 `langfuse_context.update_current_observation` 上报 token 用量数据。如下内容：
+
+```python{7,10-14}
+# ...
+@observe(as_type="generation")
+def tongyi_generation(messages: list[dict]) -> str:
+    # ...
+    if response.status_code == 200:
+        # ...
+        langfuse_context.update_current_observation(
+            name="Dashscope-generation", model=model_name
+            , input=messages, output=output
+            , usage={
+                "input": response.usage['input_tokens']
+                , "output": response.usage['output_tokens']
+                , "unit": "TOKENS"
+            }
+        )
+        return output
+    # ...
+
+# ...
+```
+
+### hooks by langfarm
+
+上报 token 用量数据是通用的方法。我把这段代码使用类似 python 装饰器的方式实现，并把它发布到 PyPI 仓库。来看下怎么使用
+
+安装依赖：
+```bash
+pip intall langfarm
+```
+
+使用 DashScope 示例代码：
+```python{6-8}
+import os
+import time
+
+from dotenv import load_dotenv
+from langfuse.decorators import observe
+# from dashscope import Generation
+# 改用 from langfarm.hooks.dashscope
+from langfarm.hooks.dashscope import Generation
+
+load_dotenv()
+
+
+@observe(as_type="generation")
+def tongyi_generation(model_name: str, query: str) -> str:
+    response = Generation.call(
+        api_key=os.getenv('DASHSCOPE_API_KEY'),
+        model=model_name,
+        prompt=query,
+        result_format="message"
+    )
+
+    if response.status_code == 200:
+        return response.output.choices[0].message.content
+    else:
+        tip = "请参考文档：https://help.aliyun.com/zh/model-studio/developer-reference/error-code"
+        raise Exception(
+            f"HTTP返回码：{response.status_code}；错误码：{response.code}；错误信息：{response.message}。{tip}")
+
+
+@observe(name="tongyi_hook_by_langfarm")
+def dashscope_hook_call(query: str) -> str:
+    output = tongyi_generation("qwen-plus", query)
+    return output
+
+
+if __name__ == '__main__':
+    input_query = "请用50个字描写秋天的景色。"
+    result = dashscope_hook_call(input_query)
+    print(result)
+    print("等待 2 秒，等待 langfuse 异步上报。")
+    time.sleep(2)
+    print("完成！")
+
+```
+
+核心的修改：只是修改引用包，其它一样正常使用 DashScope：
+```diff
+- from dashscope import Generation
++ from langfarm.hooks.dashscope import Generation
+```
+
+效果如下：
+
+![tongyi-hook-by-langfarm](http://static.chenlb.com/img/tongyi/tongyi-hook-by-langfarm.png)
