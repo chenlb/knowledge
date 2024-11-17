@@ -111,7 +111,6 @@ def openai_completion(input_query: str) -> str:
 
 if __name__ == '__main__':
     query = '请用50个字描写春天的景色。'
-
     r = openai_completion(query)
     print(r)
     print("等待 5 秒，等待 langfuse 异步上报。")
@@ -127,7 +126,10 @@ if __name__ == '__main__':
 
 Langfuse 天生对 openai 做了很好的兼容。对 tongyi 取不到 token 的用量（因为 langfuse 没有对 tongyi 进行集成），需要额外处理。
 
-好在 Langfuse 还提供了一些函数来处理其它信息的上报，使用 `langfuse_context` 的相关方法：
+
+### langfuse_context
+
+由于上面 tongyi 使用 `@observe()` 后缺少 token 用量数据。好在 Langfuse 还提供了一些函数来处理其它信息的上报，使用 `langfuse_context` 的相关方法：
 * `langfuse_context.update_current_observation` - 更新当前的 observation 相关属性
 * `langfuse_context.update_current_trace` - 更新 trace 相关属性
 
@@ -196,6 +198,10 @@ if __name__ == '__main__':
 效果:
 
 ![tongyi-with-langfuse-observe-v2](http://static.chenlb.com/img/langfuse/tongyi-with-langfuse-observe-v2.png)
+
+::: tip 说明
+更多关于 `langfuse_context.*` 的细节请看官方文档：[add-additional-parameters-to-the-trace](https://langfuse.com/docs/sdk/python/example#add-additional-parameters-to-the-trace)
+:::
 
 ## Langchain Callback
 
