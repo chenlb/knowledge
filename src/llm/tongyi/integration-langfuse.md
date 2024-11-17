@@ -1,0 +1,142 @@
+# Tongyi 集成 Langfuse
+
+Langfuse 是一个开源 LLM 工程平台，可帮助团队协作调试、分析和迭代其 LLM 应用程序。
+
+可以从 [Langfuse 快速开始](/llm/langfuse/getting-started) 快速了解更多。
+
+Tongyi 与 Langfuse 集成使用有几种方法：
+* 借助 Langfuse 与 OpenAI 集成 SDK。
+* 借助 Langchain 的 Tongyi 社区集成，使用的 callback 方式实现。（缺点：token 用量取不到，可以自行改进。）
+* 使用 Langfuse 的装饰器（`@observe`）+ Dashscope（通义的官方 SDK）。（缺点：token 用量取不到，可以自行改进。）
+* 使用 Langfuse SDK 的 API。（缺点：代码入侵相对多一点）
+
+## 借助 OpenAI SDK
+
+Langfuse 与 OpenAI 集成度成熟。所以使用：Langchain callback 还是 Langfuse 的装饰器都很方便。
+
+* Langfuse 的 OpenAI 集成 SDK + `@observe`。
+* Langchain 的 OpenAI 集成 SDK + Langfuse 的 Langchain Callback，也可以结合 Langfuse `@observe`、`langfuse_context.*` 方法更精准的控制上报内容。
+
+### Langfuse 的 OpenAI 集成 SDK
+
+安装依赖库（推荐在 Python 虚拟环境中使用）：
+```bash
+# langfuse python sdk
+pip install langfuse
+# 通义的 openai 兼容接口方法，只需要依赖 openai 即可。
+pip install openai
+# 方便读取 .env 配置
+pip install python-dotenv
+```
+
+Langfuse 的 OpenAI 集成 SDK，结合 `@observe`：
+```python{5-6,12,19}
+import os
+import time
+
+from dotenv import load_dotenv
+from langfuse.openai import OpenAI
+from langfuse.decorators import observe
+
+# 加载 .env 配置文件的内容
+load_dotenv()
+
+
+@observe()
+def openai_completion(input_query: str) -> str:
+    messages = [
+        {'role': 'system', 'content': '你是小学语文老师。'},
+        {'role': 'user', 'content': input_query}
+    ]
+    try:
+        client = OpenAI(
+            # load_dotenv() 已从 .env 文件读的，可以直接使用。
+            api_key=os.getenv("DASHSCOPE_API_KEY"),
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+        )
+
+        completion = client.chat.completions.create(
+            # 模型列表：https://help.aliyun.com/zh/model-studio/getting-started/models
+            model="qwen-plus"
+            , messages=messages
+        )
+
+        return completion.choices[0].message.content
+    except Exception as e:
+        print(f"错误信息：{e}")
+        print("请参考文档：https://help.aliyun.com/zh/model-studio/developer-reference/error-code")
+
+
+if __name__ == '__main__':
+    query = '请用50个字描写春天的景色。'
+    r = openai_completion(query)
+    print(r)
+    print("等待 5 秒，等待 langfuse 异步上报。")
+    time.sleep(5)
+    print("end!")
+
+```
+
+这种方式很方便，也不需要 通义 SDK（Dashscope），功能也完善。效果如下：
+
+![tongyi-openai-langfuse-observe](/img/tongyi/tongyi-openai-langfuse-observe.png)
+
+::: tip 说明
+当然，也可以使用在 `@observe` 装饰的函数内，使用 `langfuse_context.*` 实现更多上报细节的控制。
+
+可以参数：[dashscope sdk 使用 langfuse_context 增加 token 用量上报](/llm/langfuse/tracing-examples#langfuse-context)
+
+更多关于 `langfuse_context.*` 的细节请看官方文档：[add-additional-parameters-to-the-trace](https://langfuse.com/docs/sdk/python/example#add-additional-parameters-to-the-trace)
+:::
+
+### Langchain Callback
+
+在 Langchain 方式来调用大模型的时间。使用 Langchain 集成的 OpenAI 和 Langfuse 的 Langchain Callback 也可以实现。
+
+追加安装依赖库：
+```bash
+pip install langchain-openai
+```
+
+代码实现：
+```python{5-6,13,19,24}
+import os
+import time
+
+from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI
+from langfuse.callback import CallbackHandler
+
+# 加载 .env 配置
+load_dotenv()
+
+query = '请用50个字描写春天的景色。'
+
+llm = ChatOpenAI(
+        model="qwen-plus"
+        , api_key=os.getenv("DASHSCOPE_API_KEY")
+        , base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+)
+
+langfuse_handler = CallbackHandler()
+
+# 可以在链上追加其它任务
+chain = llm
+
+result = chain.invoke(query, config={"callbacks": [langfuse_handler]})
+
+print(type(result))
+print(result)
+print("等待 5 秒，等待 langfuse 异步上报。")
+time.sleep(5)
+print("完成！")
+
+```
+
+效果：
+
+![tongyi-openai-langchain-callback](/img/tongyi/tongyi-openai-langchain-callback.png)
+
+::: tip 说明
+当前的 langchain-openai 0.2.8 版本。使用 OpenAI 类，报 404 错，可能通义没有实现。只能用 ChatOpenAI 类。
+:::

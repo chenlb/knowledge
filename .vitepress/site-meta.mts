@@ -93,6 +93,7 @@ const sidebar = {
                 {text: '简介', link: '/llm/tongyi/'},
                 {text: '快速开始', link: '/llm/tongyi/getting-started'},
                 {text: '兼容 OpenAI', link: '/llm/tongyi/compatible-openai'},
+                {text: '集成 Langfuse', link: '/llm/tongyi/integration-langfuse'},
             ]
         }
     ],
