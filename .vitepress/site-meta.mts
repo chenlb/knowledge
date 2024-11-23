@@ -40,6 +40,7 @@ const nav = [
             {
                 items: [
                     { text: 'Nginx', link: '/internet/nginx' },
+                    { text: 'Linux 常用命令', link: '/internet/linux-command' },
                 ]
             }
         ]
@@ -124,6 +125,7 @@ const sidebar = {
             text: "服务器",
             items: [
                 {text: 'Nginx', link: '/internet/nginx'},
+                { text: 'Linux 常用命令', link: '/internet/linux-command' },
             ]
         }
     ],
