@@ -36,6 +36,19 @@ export default defineConfig({
       'script', {},
       'LA.init({id:"3KKmyFdMIc01NBWw",ck:"3KKmyFdMIc01NBWw",autoTrack:true,hashMode:true})'
     ]
+    // google analytics
+    ,[
+      'script', {
+        async: '',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-9X6DXQCC8F'
+      }
+    ],[
+      'script', {},
+      "window.dataLayer = window.dataLayer || [];\n" +
+      "function gtag(){dataLayer.push(arguments);}\n" +
+      "gtag('js', new Date());\n" +
+      "gtag('config', 'G-9X6DXQCC8F');"
+    ]
   ],
   themeConfig: {
     logo: '/logo.svg',
