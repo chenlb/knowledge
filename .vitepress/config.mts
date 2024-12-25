@@ -40,14 +40,14 @@ export default defineConfig({
     ,[
       'script', {
         async: '',
-        src: 'https://www.googletagmanager.com/gtag/js?id=G-9X6DXQCC8F'
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-XWCE7Q5QDS'
       }
     ],[
       'script', {},
       "window.dataLayer = window.dataLayer || [];\n" +
       "function gtag(){dataLayer.push(arguments);}\n" +
       "gtag('js', new Date());\n" +
-      "gtag('config', 'G-9X6DXQCC8F');"
+      "gtag('config', 'G-XWCE7Q5QDS');"
     ]
   ],
   themeConfig: {
