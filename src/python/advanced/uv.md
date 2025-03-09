@@ -73,7 +73,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 ## 指定 PyPI 源
 
-把如下内容放到 ```~/.config/uv/uv.toml``` 或 ```/etc/uv/uv.toml``` 中，内容：
+把如下内容放到 ```~/.config/uv/uv.toml``` 或 ```/etc/uv/uv.toml``` 或 ```C:\ProgramData\uv\uv.toml```（windows） 中，内容：
 ```toml
 [[index]]
 url = "http://mirrors.aliyun.com/pypi/simple/"

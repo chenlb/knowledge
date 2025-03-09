@@ -27,7 +27,7 @@ const nav = [
             {
                 text: '模型部署',
                 items: [
-
+                    { text: 'CUDA', link: '/llm/deploy/cuda-install-on-windows' },
                     { text: 'Ollama', link: '/llm/deploy/ollama-on-mac' },
                 ]
             },
@@ -116,6 +116,13 @@ const sidebar = {
             collapsed: false,
             items: [
                 {text: '在 Mac 部署', link: '/llm/deploy/ollama-on-mac'},
+            ]
+        },
+        {
+            text: "环境",
+            collapsed: false,
+            items: [
+                {text: '在Windows中安装CUDA', link: '/llm/deploy/cuda-install-on-windows'},
             ]
         }
     ],
