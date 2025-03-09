@@ -25,6 +25,13 @@ const nav = [
                 ]
             },
             {
+                text: '模型部署',
+                items: [
+
+                    { text: 'Ollama', link: '/llm/deploy/ollama-on-mac' },
+                ]
+            },
+            {
                 text: 'LLM 生态',
                 items: [
 
@@ -100,6 +107,15 @@ const sidebar = {
                 {text: '快速开始', link: '/llm/tongyi/getting-started'},
                 {text: '兼容 OpenAI', link: '/llm/tongyi/compatible-openai'},
                 {text: '集成 Langfuse', link: '/llm/tongyi/integration-langfuse'},
+            ]
+        }
+    ],
+    "/llm/deploy/": [
+        {
+            text: "Ollama",
+            collapsed: false,
+            items: [
+                {text: '在 Mac 部署', link: '/llm/deploy/ollama-on-mac'},
             ]
         }
     ],
