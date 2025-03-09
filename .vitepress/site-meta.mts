@@ -7,6 +7,7 @@ const nav = [
                 items: [
                     { text: 'Python 编程', link: '/python/' },
                     { text: 'Logging', link: '/python/advanced/logging'},
+                    { text: 'UV', link: '/python/advanced/uv' },
                     { text: 'Poetry', link: '/python/advanced/poetry' },
                     { text: 'FastAPI', link: '/python/fastapi/' },
                 ]
@@ -76,6 +77,7 @@ const sidebar = {
             collapsed: false,
             items: [
                 {text: '日志记录', link: '/python/advanced/logging'},
+                {text: 'UV：依赖和项目管理', link: '/python/advanced/uv'},
                 {text: 'Poetry：依赖和包管理', link: '/python/advanced/poetry'},
                 {text: '插件化', link: '/python/advanced/plugin'}
             ]

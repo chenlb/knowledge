@@ -465,7 +465,7 @@ poetry publish
 ```
 :::
 
-发布示例（[langfarm](https://github.com/langfarm/langfarm)）：
+发布示例（[langfarm-python-sdk](https://github.com/langfarm/langfarm-python-sdk/blob/v0.1.2/pyproject.toml)）：
 * 成功：不需要指定 pypi 源
 * 失败：多余地指定 pypi 源
 
