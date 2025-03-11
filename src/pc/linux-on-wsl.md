@@ -22,7 +22,7 @@ Press any key to continue...
 
 ## 下载安装 Debian
 
-Microsoft store 下载和安装 Debian 或 Ubuntu。（说明：推荐用 Microsoft store 安装。用 wsl 命令安装）
+Microsoft store 下载和安装 Debian 或 Ubuntu。（说明：推荐用 Microsoft store 安装。用 wsl 命令安装有可能报错。）
 
 ![download-debian-on-win-store](http://static.chenlb.com/img/win/wsl/download-debian-on-win-store.png)
 
