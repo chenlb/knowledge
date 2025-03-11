@@ -156,6 +156,7 @@ const sidebar = {
     ],
     "/pc/": [
         {text: 'Macbook 基础环境', link: '/pc/macbook-env'},
+        {text: 'Windows 中使用 Linux', link: '/pc/linux-on-wsl'},
     ]
     ,
     "/about/": [
