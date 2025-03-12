@@ -38,23 +38,22 @@ You can suppress this exception and fall back to eager by setting:
 mkdir ~/vllm
 cd ~/vllm
 
-# 设置 uv 安装 python 目录。也可以使用系统自己的 python
-echo "export UV_PYTHON_INSTALL_DIR=/mnt/d/debian/python" >> ~/.bashrc
-# 设置 uv 下载超时（单位：秒）
-echo "export UV_HTTP_TIMEOUT=180" >> ~/.bashrc
-source ~/.bashrc
-
 # 查看有没有 python，已经有了就不用安装了。
 uv python list
 # uv 安装 python。也可以使用系统来安装（比 uv 安装要快）
+# 设置 uv 安装 python 目录。也可以使用系统自己的 python
+# echo "export UV_PYTHON_INSTALL_DIR=/mnt/d/debian/python" >> ~/.bashrc
 # uv python install 3.12
-
 
 # uv 创建 python 虚拟环境
 # https://docs.vllm.ai/en/stable/getting_started/installation/gpu/index.html
 # --seed 参数，是把 pip 也放到虚拟环境
 uv venv -p 3.12 --seed
 source .venv/bin/activate
+
+# 设置 uv 下载超时（单位：秒）
+echo "export UV_HTTP_TIMEOUT=180" >> ~/.bashrc
+source ~/.bashrc
 
 # 安装 vllm
 uv pip install vllm
@@ -621,10 +620,10 @@ curl http://localhost:8000/v1/completions \
 
 chatbox 先设置 vllm 本地服务
 
-![chatbox-to-vllm-qwen-1](http://static.chenlb.com/img/chatbox/chatbox-to-vllm-qwen-1.png)
+![chatbox-to-vllm-qwen-1](http://static.chenlb.com/img/ai-ui/chatbox/chatbox-to-vllm-qwen-1.png)
 
 输入模型名（启动 vllm 时用 ```--served-model-name``` 参数指定的）
-![chatbox-to-vllm-qwen-2](http://static.chenlb.com/img/chatbox/chatbox-to-vllm-qwen-2.png)
+![chatbox-to-vllm-qwen-2](http://static.chenlb.com/img/ai-ui/chatbox/chatbox-to-vllm-qwen-2.png)
 
 新增对话后，就可以输入内容了
-![chatbox-to-vllm-qwen-3](http://static.chenlb.com/img/chatbox/chatbox-to-vllm-qwen-3.png)
+![chatbox-to-vllm-qwen-3](http://static.chenlb.com/img/ai-ui/chatbox/chatbox-to-vllm-qwen-3.png)
