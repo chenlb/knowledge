@@ -53,7 +53,18 @@ const nav = [
             }
         ]
     },
-    { text: '电脑办公', link: '/pc/macbook-env' },
+    {
+        text: '电脑办公',
+        items: [
+            {
+                items: [
+                    { text: 'Macbook', link: '/pc/macbook-env'  },
+                    { text: 'Linux On WSL', link: '/pc/linux-on-wsl'  },
+                    { text: 'Debian', link: '/pc/debian-best-setting'  },
+                ]
+            }
+        ]
+    },
     { text: '关于', link: '/about/' },
 ]
 
@@ -155,7 +166,19 @@ const sidebar = {
         }
     ],
     "/pc/": [
-        {text: 'Macbook 基础环境', link: '/pc/macbook-env'},
+        {
+            text: "Mac",
+            items: [
+                {text: 'Macbook 基础环境', link: '/pc/macbook-env'},
+            ]
+        },
+        {
+            text: "Linux",
+            items: [
+                {text: 'Linux On WSL', link: '/pc/linux-on-wsl'},
+                {text: 'Debian', link: '/pc/debian-best-setting'},
+            ]
+        }
     ]
     ,
     "/about/": [
