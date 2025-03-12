@@ -29,6 +29,7 @@ const nav = [
                 items: [
                     { text: 'CUDA', link: '/llm/deploy/cuda-install-on-windows' },
                     { text: 'Ollama', link: '/llm/deploy/ollama-on-mac' },
+                    { text: 'vLLM', link: '/llm/deploy/debian-install-vllm' },
                 ]
             },
             {
@@ -127,6 +128,13 @@ const sidebar = {
             collapsed: false,
             items: [
                 {text: '在 Mac 部署', link: '/llm/deploy/ollama-on-mac'},
+            ]
+        },
+        {
+            text: "vLLM",
+            collapsed: false,
+            items: [
+                {text: 'vllm + modelscope', link: '/llm/deploy/debian-install-vllm'},
             ]
         },
         {
