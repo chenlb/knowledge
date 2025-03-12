@@ -8,7 +8,7 @@
 * 适应于 Linux 的 Windows 子系统
 * Windows 虚拟机监控程序平台
 
-![pre-set-wsl](/img/win/wsl/pre-set-wsl.png)
+![pre-set-wsl](http://static.chenlb.com/img/win/wsl/pre-set-wsl.png)
 
 否则会出现如下报错：
 
@@ -22,9 +22,9 @@ Press any key to continue...
 
 ## 下载安装 Debian
 
-Microsoft store 下载和安装 Debian 或 Ubuntu。（说明：推荐用 Microsoft store 安装。用 wsl 命令安装）
+Microsoft store 下载和安装 Debian 或 Ubuntu。（说明：推荐用 Microsoft store 安装。用 wsl 命令安装有可能报错。）
 
-![download-debian-on-win-store](/img/win/wsl/download-debian-on-win-store.png)
+![download-debian-on-win-store](http://static.chenlb.com/img/win/wsl/download-debian-on-win-store.png)
 
 下载后启动，如果出现如下错误
 
