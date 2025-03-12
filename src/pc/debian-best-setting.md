@@ -60,6 +60,9 @@ sudo apt install vim -y
 ## 镜像源改为 https
 
 ```bash
+# 安装支持  https 的库
+sudo apt install apt-transport-https ca-certificates -y
+
 sudo vi /etc/apt/sources.list
 # 把4个http地址改为 https
 
