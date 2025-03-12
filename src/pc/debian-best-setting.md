@@ -2,7 +2,7 @@
 
 ## 使用国内镜像源
 
-更新镜像配置
+更新镜像配置（[使用清华大学的源](https://mirrors.tuna.tsinghua.edu.cn/help/debian/)）
 ```bash
 sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo vi /etc/apt/sources.list
