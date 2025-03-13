@@ -2,6 +2,10 @@
 
 [WSL (Windows Subsystem for Linux) 介绍](https://learn.microsoft.com/zh-cn/windows/wsl/)请看官网
 
+环境：
+* windows 11 专业版 22H2
+* wsl 2
+
 ## 在 wsl 安装 Debian
 
 开启 wsl 功能：
@@ -39,6 +43,7 @@ Press any key to continue...
 就更新 最新版的 wsl。
 ```bash
 # PowerShell 运行。
+# 更新到 wsl 2
 wsl --update
 ```
 
@@ -134,3 +139,59 @@ HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
 ```
+
+## 网络访问
+
+场景1：
+wsl 里的 linux 启动了服务，如：```8000``` 端口。windows 可以使用 ```http://localhost:8000``` 访问。但使用 windows 宿主机的 ip:8000无法访问。
+
+需要查看 wsl 的 linux 在 windows 宿主机 ip。使用 wsl 的 linux 的 ip。
+```console
+PS C:\Users\Administrator> wsl -d Debian hostname -I
+172.30.208.210
+```
+
+场景2：在 wsl 的 linux 访问 windows 宿主机的服务。要使用 windows 宿主机 ip。
+```console
+$ ip route show | grep -i default | awk '{ print $3}'
+172.30.208.1
+```
+
+场景3：局域网的其它机器访问 wsl 的 linux。需要做网络转发
+```bash
+# netsh interface portproxy add v4tov4 listenport=<yourPortToForward> listenaddress=0.0.0.0 connectport=<yourPortToConnectToInWSL> connectaddress=(wsl hostname -I)
+# <yourPortToForward> - windows 宿主机监听的端口号
+# <yourPortToConnectToInWSL> - wsl linux 服务的端口号
+# connectaddress - wsl linux 的 ip 地址
+
+# 上面 ip 地址的示例
+# 改一个从外面 LAN 机器访问到 windows 宿主机的端口号 8080
+netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8000 connectaddress=172.30.208.210
+
+# 查看 nat 端口映射
+netsh interface portproxy show all
+```
+
+结果为
+```console
+PS C:\Users\Administrator> netsh interface portproxy show all
+
+侦听 ipv4:                 连接到 ipv4:
+
+地址            端口        地址            端口
+--------------- ----------  --------------- ----------
+0.0.0.0         8080        172.30.208.210  8000
+```
+
+windows 本机或其它 lan 的机器就可以访问 windows lan ip:8080 访问了。如 ```http://192.168.0.2:8080```
+
+参考：https://learn.microsoft.com/zh-cn/windows/wsl/networking
+
+## 常见问题
+
+### 解决Debian WSL报错ping: socket: Operation not permitted
+参考：https://debug.fanzheng.org/post/Debian-WSL-ping-socket-Operation-not-permitted.html
+```bash
+sudo setcap 'cap_net_raw+ep' /bin/ping
+```
+
