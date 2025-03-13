@@ -69,3 +69,17 @@ sudo vi /etc/apt/sources.list
 # 退出后更新
 sudo apt update
 ```
+
+## 安装基础软件
+
+```bash
+sudo apt install curl
+```
+
+## 常用命令
+
+```bash
+# 查看ip地址
+# 可以不用安装 net-tools 的 ifconfig 命令。
+ip a
+```
