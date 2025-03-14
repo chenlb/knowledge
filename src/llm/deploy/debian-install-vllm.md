@@ -66,6 +66,7 @@ uv pip install vllm
   * Qwen2.5-14B-Instruct
   * DeepSeek-R1-Distill-Qwen-14B
 * 32B-AWQ
+  * Qwen2.5-32B-Instruct-AWQ
   * QwQ-32B-AWQ
 
 ::: tip 改变 vllm 的模型源
@@ -82,6 +83,7 @@ uv pip install modelscope
 # 先用 modelscope 下载，（模型按需选择， https://modelscope.cn/models 可以找到其它大模型）。
 modelscope download "Qwen/Qwen2.5-14B-Instruct"
 # modelscope download "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
+# modelscope download "Qwen2.5-32B-Instruct-AWQ"
 # modelscope download "Qwen/QwQ-32B-AWQ"
 ```
 :::
@@ -589,6 +591,17 @@ uv run vllm serve deepseek-ai/DeepSeek-R1-Distill-Qwen-14B \
 	--served-model-name DeepSeek-R1-Distill-Qwen-14B \
 	--tensor-parallel-size 2 \
 	--max-model-len 32768 \
+	--enforce-eager
+```
+
+### 启动 Qwen2.5-32B-Instruct-AWQ
+
+```bash
+uv run vllm serve Qwen/Qwen2.5-32B-Instruct-AWQ \
+	--served-model-name "Qwen2.5-32B-Instruct-AWQ" \
+	--quantization "awq" --dtype "half" \
+	--tensor-parallel-size 2 \
+	--max-model-len 16384 \
 	--enforce-eager
 ```
 
