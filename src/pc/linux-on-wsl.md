@@ -170,6 +170,9 @@ netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 conne
 
 # 查看 nat 端口映射
 netsh interface portproxy show all
+
+# 删除
+# netsh interface portproxy delete v4tov4 listenport=8080 listenaddress=0.0.0.0
 ```
 
 结果为
