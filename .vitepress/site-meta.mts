@@ -35,7 +35,7 @@ const nav = [
             {
                 text: 'LLM 生态',
                 items: [
-
+                    { text: 'Dify', link: '/llm/dify/install-dify' },
                     { text: 'Langfuse', link: '/llm/langfuse/' },
                     { text: '通义集成 Langfuse', link: '/llm/tongyi/integration-langfuse' },
 
@@ -119,6 +119,15 @@ const sidebar = {
                 {text: '快速开始', link: '/llm/tongyi/getting-started'},
                 {text: '兼容 OpenAI', link: '/llm/tongyi/compatible-openai'},
                 {text: '集成 Langfuse', link: '/llm/tongyi/integration-langfuse'},
+            ]
+        }
+    ],
+    "/llm/dify/": [
+        {
+            text: "部署",
+            collapsed: false,
+            items: [
+                {text: '本地部署 Dify', link: '/llm/dify/install-dify'},
             ]
         }
     ],
