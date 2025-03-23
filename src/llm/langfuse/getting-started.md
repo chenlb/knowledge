@@ -14,7 +14,10 @@
 # 下载源码，主要是 docker-compose.yml 配置
 git clone https://github.com/langfuse/langfuse.git
 cd langfuse
- 
+
+# 使用 v2 版本，v3 需要 clickhouse 组件。
+git checkout v2
+
 # 启动 postgresql 和 langfuse server
 docker compose up
 ```
