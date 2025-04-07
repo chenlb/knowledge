@@ -53,7 +53,7 @@ Sa-Token 实现了这种四种模式
 * [JWK 生成 Java 版](https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation)
 * [JWT 在线 Debugger](https://jwt.io/)
 
-同时把这些代码制作 docker 镜像 ```chenlb/oauth2-server:0.0.2```，方便直接使用。
+同时把这些代码制作 docker 镜像 ```chenlb/oauth2-server:0.0.3```，方便直接使用。
 
 ::: tip chenlb/oauth2-server 镜像说明：
 * 内置 nginx 服务
@@ -80,15 +80,14 @@ cd ~/oauth2-server
 
 # 保存私钥/公钥使用 
 mkdir -p pem
-cd pem
 
 # 参考：https://tongqijie.com/post/rs256-rsa-with-sha-256-si-yao-he-gong-yao-sheng-cheng-fang-fa-zjc22re2
 # 生成私钥
-openssl genrsa -out rs256_private_key.pem 2048
+openssl genrsa -out pem/rs256_private_key.pem 2048
 
 # 生成公钥
 # 用于 http://sa-oauth-server.com:9080/.well-known/openid-configuration 返回 jwks_uri 连接返回 jwks.json 内容。
-openssl rsa -pubout -in rs256_private_key.pem -out rs256_public_key.pem
+openssl rsa -pubout -in pem/rs256_private_key.pem -out pem/rs256_public_key.pem
 ```
 
 配置 mock 用户
@@ -147,7 +146,7 @@ docker run --name oauth2-mock-server -d \
     -p 9080:9080 -p 8000:8000 \
     -v ~/oauth2-server/mock/users.json:/app/mock/users.json \
     -v ~/oauth2-server/pem:/app/pem \
-    chenlb/oauth2-server:0.0.2
+    chenlb/oauth2-server:0.0.3
 ```
 
 ## 打开 H5 OAuth2 Client 测试
