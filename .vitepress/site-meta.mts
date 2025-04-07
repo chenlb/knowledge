@@ -171,6 +171,7 @@ const sidebar = {
             collapsed: false,
             items: [
                 {text: 'Tracing API', link: '/llm/langfuse/tracing-api'},
+                {text: 'Custom OAuth2', link: '/llm/langfuse/custom-oauth2'},
             ]
         }
     ],
