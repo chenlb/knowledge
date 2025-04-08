@@ -129,6 +129,19 @@ AUTH_CUSTOM_ID_TOKEN=true
 #AUTH_CUSTOM_CHECKS=nonce
 ```
 
+
+## 其它参数说明
+
+AUTH_CUSTOM_* 的其它参数说明
+
+如果 OAuth2 Server 的 ```/oauth2/token``` 和 ```/oauth2/userinfo``` 接口不支持 GET 方法，需要使用 POST 方法。
+
+```dotenv
+# 默认是 client_secret_basic
+AUTH_CUSTOM_CLIENT_AUTH_METHOD=client_secret_post
+```
+
+
 ## 支持头像
 
 官方的 Langfuse 目前 v2 和 v3 还不支持 Custom OAuth2 头像。如果感兴趣改的话，需要修改一下源码，自行编辑。
@@ -146,7 +159,7 @@ AUTH_CUSTOM_ID_TOKEN=true
 * 使用 npm 淘宝镜像源
 
 
-使用 chenlb/langfuse:2 镜像：
+支持头像的 Langfuse 2.x 我已经制作了 docker 镜像 ```chenlb/langfuse:2```。使用步骤：
 * 把上面的 docker-compose-oauth2.yml 文件中的 langfuse-server 镜像改为 chenlb/langfuse:2。
 * 停了 langfuse-server 服务，重新启动 （用上面的 docker compose 命令）。
 * 访问 http://localhost:5050 pgadmin4，清空 users 表的数据。
