@@ -50,6 +50,7 @@ const nav = [
                 items: [
                     { text: 'Nginx', link: '/internet/nginx' },
                     { text: 'Linux 常用命令', link: '/internet/linux-command' },
+                    {text: 'OAuth2', link: '/internet/oauth2'},
                 ]
             }
         ]
@@ -170,6 +171,7 @@ const sidebar = {
             collapsed: false,
             items: [
                 {text: 'Tracing API', link: '/llm/langfuse/tracing-api'},
+                {text: 'Custom OAuth2', link: '/llm/langfuse/custom-oauth2'},
             ]
         }
     ],
@@ -179,6 +181,12 @@ const sidebar = {
             items: [
                 {text: 'Nginx', link: '/internet/nginx'},
                 { text: 'Linux 常用命令', link: '/internet/linux-command' },
+            ]
+        },
+        {
+            text: "架构",
+            items: [
+                {text: 'OAuth2', link: '/internet/oauth2'},
             ]
         }
     ],
