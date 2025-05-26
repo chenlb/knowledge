@@ -99,7 +99,8 @@ const sidebar = {
                 {text: '日志记录', link: '/python/advanced/logging'},
                 {text: 'UV：依赖和项目管理', link: '/python/advanced/uv'},
                 {text: 'Poetry：依赖和包管理', link: '/python/advanced/poetry'},
-                {text: '插件化', link: '/python/advanced/plugin'}
+                {text: '插件化', link: '/python/advanced/plugin'},
+                {text: '安装常见错误', link: '/python/advanced/install-errors'}
             ]
         },
         {
