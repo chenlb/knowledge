@@ -89,7 +89,9 @@ torchvision = [
 
 [[tool.uv.index]]
 name = "pytorch-cu126"
-url = "https://download.pytorch.org/whl/cu126"
+#url = "https://download.pytorch.org/whl/cu126"
+# 南京大学 pytorch 镜像
+url = "https://mirror.nju.edu.cn/pytorch/whl/cu126"
 explicit = true
 ```
 
@@ -119,7 +121,10 @@ uv tree
 uv venv
 
 # 指定 pypi 源的地址下载
-uv pip install torch torchvision torchaudio --index https://download.pytorch.org/whl/cu126
+# https://download.pytorch.org/whl/cu126
+# 南京大学 pytorch 镜像
+# https://mirror.nju.edu.cn/pytorch/whl/cu126
+uv pip install torch torchvision torchaudio --index https://mirror.nju.edu.cn/pytorch/whl/cu126
 ```
 :::
 
