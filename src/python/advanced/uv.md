@@ -171,6 +171,66 @@ python main.py
 uv pip install requests
 ```
 
+## 使用私有 Python 包的源
+如：配置 pytorch 的 cuda 版：pytorch + cu126
+
+pyproject.toml 增加 index 定义，sources 定义哪些包使用指定的 index。
+```toml
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchaudio = [
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+  { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+#url = "https://download.pytorch.org/whl/cu126"
+# 南京大学 pytorch 镜像
+url = "https://mirror.nju.edu.cn/pytorch/whl/cu126"
+explicit = true
+```
+
+uv 增加 torch 库时下载就快多了。
+```bash
+# 会从南京大学 pytorch 镜像 https://mirror.nju.edu.cn/pytorch/whl/cu126 下载
+uv add torch torchaudio torchvision
+```
+
+## 管理 Python 版本
+
+配置 Python 安装镜像源：
+
+::: code-group
+```toml [uv.toml]
+# 默认https://github.com/astral-sh/python-build-standalone/releases/download/
+python-install-mirror = "https://mirror.nju.edu.cn/github-release/indygreg/python-build-standalone/"
+
+# ...
+```
+
+```bash [环境变量]
+# 默认从  github 获取
+# https://github.com/astral-sh/python-build-standalone/releases/download/
+
+# vi ~/.zshrc
+export UV_PYTHON_INSTALL_MIRROR=https://mirror.nju.edu.cn/github-release/indygreg/python-build-standalone/
+```
+:::
+
+安装指定 python 版本
+```bash
+uv python install 3.12
+```
+
+查看已经安装的 python 版本
+```bash
+uv python list
+```
 
 ## 发布
 
