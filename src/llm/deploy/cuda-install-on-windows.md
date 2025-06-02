@@ -97,7 +97,8 @@ explicit = true
 
 用 uv 添加依赖
 ```bash
-# 下载可能比较慢，我的环境需要 1.5 小时。
+# pytorch 官网下载可能比较慢，我的环境需要 1.5 小时。
+# 使用南京大学 pytorch 镜像很快
 uv add torch torchaudio torchvision
 
 # 安装好后可以查包
