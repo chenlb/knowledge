@@ -79,6 +79,7 @@ const sidebar = {
                 {text: 'FastAPI 是什么？', link: '/python/fastapi/'},
                 {text: '快速开始', link: '/python/fastapi/getting-started'},
                 {text: '请求参数', link: '/python/fastapi/request-params'},
+                {text: '最佳实践', link: '/python/fastapi/best-practice'},
             ]
         }
     ],
