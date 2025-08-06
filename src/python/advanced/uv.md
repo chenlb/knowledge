@@ -208,7 +208,7 @@ uv add torch torchaudio torchvision
 ::: code-group
 ```toml [uv.toml]
 # 默认https://github.com/astral-sh/python-build-standalone/releases/download/
-python-install-mirror = "https://mirror.nju.edu.cn/github-release/indygreg/python-build-standalone/"
+python-install-mirror = "https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone/"
 
 # ...
 ```
@@ -218,7 +218,7 @@ python-install-mirror = "https://mirror.nju.edu.cn/github-release/indygreg/pytho
 # https://github.com/astral-sh/python-build-standalone/releases/download/
 
 # vi ~/.zshrc
-export UV_PYTHON_INSTALL_MIRROR=https://mirror.nju.edu.cn/github-release/indygreg/python-build-standalone/
+export UV_PYTHON_INSTALL_MIRROR=https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone/
 ```
 :::
 
